@@ -1,0 +1,33 @@
+.row{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	flex-wrap: wrap;
+	justify-content:space-between;
+	margin: 10px;
+}
+p{
+background-color: rgb(160, 163, 163);
+}
+.nav{
+	border: 3px solid rgb(160, 163, 163);
+	margin: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.navbar{
+	background-color: rgb(202, 190, 190);
+	border: 3px solid rgb(187, 86, 18);
+}
+.nav-container{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	flex-wrap: wrap;
+}
+.image{
+    border: 3px solid rgb(160, 163, 163);
+}
+.bottomLogo{
+    border: 3px solid rgb(39, 105, 226);    
+}

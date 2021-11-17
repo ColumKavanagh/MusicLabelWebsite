@@ -12,7 +12,7 @@ p{
 .nav{
 	border: 0.1em solid rgb(160, 163, 163);
 	margin: 10px;
-	width:min-width;
+	width: min-width;
 	padding-left: 10px;
 	padding-right: 10px;
 	text-decoration:none;
@@ -22,8 +22,6 @@ p{
 	background-color: rgb(202, 190, 190);
 	border: 0.1em solid rgb(187, 86, 18);
 }
-
-
 
 .nav-container{
 	display: flex;
@@ -40,6 +38,11 @@ p{
 		display: flex;
 		flex-direction: column;
 	}
+}
+.image{
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bottomLogo{

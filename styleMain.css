@@ -45,11 +45,9 @@ p{
     align-items: center;
 }
 
-.bottomLogo{
-    border: 3px solid rgb(39, 105, 226);    
-}
 
-#logo{
+
+#logo, .logo{
 	height: 10%;
 	width: 10%;
 	margin: 0.5em;

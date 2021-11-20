@@ -13,90 +13,60 @@ $(document).ready(function(){
 	let pop = ["Taylor Swift", "Pink", "Justin Bieber"];
 	let country = ["Johnny Cash", "John Denver", "Steve Earle"];
 	
-	//need to create more Functions
 	$(document).on("submit", "#recommendForm", function(event){
 		event.preventDefault();
 		var genre = $("#genreList").val();
-		if(genre.length==0){
-			$("#suggestions").text("");
-		} else{
-			if(genre == "rock"){
-				$("#suggestions").text("");
-				var bandHolder = "";
-				for(var i = 0; i < rock.length; i++){
-					bandHolder+=rock[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				}
-				$("#suggestions").html(bandHolder);
-			} else if(genre == "rnb"){
-				$("#suggestions").text("");
-				var bandHolder = "";
-				for(var i = 0; i < rnb.length; i++){
-					bandHolder+=rnb[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				}
-				$("#suggestions").html(bandHolder);
-			} else if(genre == "pop"){
-				$("#suggestions").text("");
-				var bandHolder = "";
-				for(var i = 0; i < pop.length; i++){
-					bandHolder+=pop[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				}
-				$("#suggestions").html(bandHolder);
-			} else if(genre == "country"){
-				$("#suggestions").text("");
-				var bandHolder = "";
-				for(var i = 0; i < country.length; i++){
-					bandHolder+=country[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				}
-				$("#suggestions").html(bandHolder);
-			}
-		}
 		var band = $("#band").val();
-		if(bandSearch(band, rock)){
-			$("#suggestions").text("");
-			var bandHolder="";
-			for(var i = 0; i < rock.length; i++){				
-				if(rock[i]!=band){
-					bandHolder+=rock[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				} else{
-					continue;				
+		if(genre.length>0 && band.length>0){
+			$("#suggestions").text("Either select a music genre or search similar artists");
+		} else {
+			if(genre.length==0){
+				$("#suggestions").text("");
+			} else{
+				if(genre == "rock"){
+					suggestionFiller(rock);
+				} else if(genre == "rnb"){
+					suggestionFiller(rnb);
+				} else if(genre == "pop"){
+					suggestionFiller(pop);
+				} else if(genre == "country"){
+					suggestionFiller(country);
 				}
 			}
-			$("#suggestions").html(bandHolder);
-		} else if(bandSearch(band, rnb)){
-			$("#suggestions").text("");
-			var bandHolder="";
-			for(var i = 0; i < rnb.length; i++){				
-				if(rnb[i]!=band){
-					bandHolder+=rnb[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				} else{
-					continue;				
-				}
+			
+			if(bandSearch(band, rock)){
+				bandSearchFiller(rock, band);
+			} else if(bandSearch(band, rnb)){
+				bandSearchFiller(rnb, band);
+			} else if(bandSearch(band, pop)){
+				bandSearchFiller(pop, band);
+			} else if(bandSearch(band, country)){
+				bandSearchFiller(country, band);
 			}
-			$("#suggestions").html(bandHolder);
-		} else if(bandSearch(band, pop)){
-			$("#suggestions").text("");
-			var bandHolder="";
-			for(var i = 0; i < pop.length; i++){				
-				if(pop[i]!=band){
-					bandHolder+=pop[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				} else{
-					continue;				
-				}
-			}
-			$("#suggestions").html(bandHolder);
-		} else if(bandSearch(band, country)){
-			$("#suggestions").text("");
-			var bandHolder="";
-			for(var i = 0; i < country.length; i++){				
-				if(country[i]!=band){
-					bandHolder+=country[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
-				} else{
-					continue;				
-				}
-			}
-			$("#suggestions").html(bandHolder);
 		}
 	})
+	
+	function suggestionFiller(genre){
+		$("#suggestions").text("");
+		var bandHolder = "";
+		for(var i = 0; i < genre.length; i++){
+			bandHolder+=genre[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
+		}
+		$("#suggestions").html(bandHolder);
+	}
+	
+	function bandSearchFiller(genre, band){
+		$("#suggestions").text("");
+		var bandHolder="";
+		for(var i = 0; i < genre.length; i++){				
+			if(genre[i]!=band){
+				bandHolder+=genre[i] + "<br/><img src='../images/paper.jpg' style='height:300px;width:375px;'/><br/>"
+			} else{
+				continue;				
+			}
+		}
+		$("#suggestions").html(bandHolder);
+	}
 	
 	function bandSearch(band, genre){
 		var counter = 0;

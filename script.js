@@ -1,11 +1,11 @@
 window.addEventListener("DOMContentLoaded", init);
-// adds curreent year after copyright symbol, Daniel Morrissey
+// adds curreent year after copyright symbol, Daniel Morrissey 21118701
 function init(){
 	let currentDate = document.getElementById("currentYear");
 	currentDate.innerHTML = "&copy;" + new Date().getFullYear();
 }
 
-// JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive)
+// JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
 $(document).ready(function(){
 	let bands = ["Rise Against", "Green Day", "Metallica", "Taylor Swift", "Pink", "Justin Bieber", "Rihanna", "Beyonce", "Drake", "Johnny Cash", "John Denver", "Steve Earle"];
 	
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		if(genre.length>0 && band.length>0){
 			$("#suggestions").text("Either select a music genre or search similar artists");
 		} else {
-			// searched based off of genre
+			// search based off of genre, Daniel Morrissey 21118701
 			if(genre.length==0){
 				$("#suggestions").text("");
 			} else{
@@ -36,7 +36,7 @@ $(document).ready(function(){
 				}
 			}
 			
-			// search off band name
+			// search off band name, Daniel Morrissey 21118701
 			if(bandSearch(band, rock)){
 				bandSearchFiller(rock, band, "Rock");
 			} else if(bandSearch(band, rnb, "RnB")){
@@ -49,6 +49,7 @@ $(document).ready(function(){
 		}
 	})
 	
+	//function that shows band recommendations based on the select tag, Daniel Morrissey 21118701
 	function suggestionFiller(genre, musicGenre){
 		$("#suggestions").text("");
 		var bandHolder = "";
@@ -58,6 +59,7 @@ $(document).ready(function(){
 		$("#suggestions").html(bandHolder);
 	}
 	
+	//function that shows band recommendations based on text input, skips the text input band. Daniel Morrissey 21118701
 	function bandSearchFiller(genre, band, musicGenre){
 		$("#suggestions").text("");
 		var bandHolder="";
@@ -71,6 +73,7 @@ $(document).ready(function(){
 		$("#suggestions").html(bandHolder);
 	}
 	
+	//function that searches for a band in each genre array, Daniel Morrissey 21118701
 	function bandSearch(band, genre){
 		var counter = 0;
 		for(var i = 0; i < genre.length; i++){

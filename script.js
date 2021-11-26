@@ -8,7 +8,7 @@ function init(){
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
 $(document).ready(function(){
 	let bands = ["Rise Against", "Green Day", "Metallica", "Taylor Swift", "Pink", "Justin Bieber", "Rihanna", "Beyonce", "Drake", "Johnny Cash", "John Denver", "Steve Earle"];
-	
+	let venue = ["Croke Park", "Old Trafford", "Turners Cross"];
 	let rock = ["Rise Against", "Green Day", "Metallica"];
 	let rnb = ["Rihanna", "Beyonce", "Drake"];
 	let pop = ["Taylor Swift", "Pink", "Justin Bieber"];
@@ -88,6 +88,55 @@ $(document).ready(function(){
 			return false;
 		}
 	}
+	
+	// function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort)
+	function gigFiller(band, genre, venue){
+		$("#resultGig").html("");
+		var bandGigHolder="";
+		var date = [randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date())];
+		date.sort(function(a,b){
+			var da = new Date(a).getTime();
+			var db = new Date(b).getTime();
+  
+			return db < da ? -1 : db > da ? 1 : 0
+		});
+		for(var i = 0; i < genre.length; i++){
+			bandGigHolder+="<h3>" + band + "</h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
+		}
+		$("#resultGig").html(bandGigHolder);
+	}
+	
+	// random date generator
+	function randomDate(start, end) {
+		return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+	}
+	
+	// function that shows events
+	$(document).on("submit", "#formGig", function(event){
+		event.preventDefault();
+		var bandGig = $("#bandGig").val();
+		if(bandSearch(bandGig, rock)){
+			gigFiller(bandGig, rock, venue);
+			$("#instructionGig").click(function(){
+				$("#resultGig").slideDown("slow");
+			})
+		} else if(bandSearch(bandGig, rnb)){
+			gigFiller(bandGig, rnb, venue);
+			$("#instructionGig").click(function(){
+				$("#resultGig").slideDown("slow");
+			})
+		} else if(bandSearch(bandGig, pop)){
+			gigFiller(bandGig, pop, venue);
+			$("#instructionGig").click(function(){
+				$("#resultGig").slideDown("slow");
+			})
+		} else if(bandSearch(bandGig, country)){
+			gigFiller(bandGig, country, venue);
+			$("#instructionGig").click(function(){
+				$("#resultGig").slideDown("slow");
+			})
+		}
+	})
 });
 
 

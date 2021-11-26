@@ -89,7 +89,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	// function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort)
+	// function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort), Daniel Morrissey 21118701
 	function gigFiller(band, genre, venue){
 		$("#resultGig").html("");
 		var bandGigHolder="";
@@ -106,12 +106,12 @@ $(document).ready(function(){
 		$("#resultGig").html(bandGigHolder);
 	}
 	
-	// random date generator
+	// random date generator, Daniel Morrissey 21118701
 	function randomDate(start, end) {
 		return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 	}
 	
-	// function that shows events
+	// function that shows events, Daniel Morrissey 21118701
 	$(document).on("submit", "#formGig", function(event){
 		event.preventDefault();
 		var bandGig = $("#bandGig").val();

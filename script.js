@@ -137,6 +137,10 @@ $(document).ready(function(){
 			})
 		}
 	})
+	
+	$(document).on("click", "#instructionGigClose", function(){
+		$("#resultGig").slideUp("slow");
+	})
 });
 
 

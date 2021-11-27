@@ -95,7 +95,7 @@ styles band recommendations images for mobiles, Daniel Morrissey 21118701
 /*
 	Ciara O' Malley
 */ 
-input[type=submit], #instructionGig, #instructionGigClose {
+input[type=submit], #recommendShowHide, #instructionGigClose {
    background-color: #3494e2;
    color: white;
    padding: 12px 20px;
@@ -103,7 +103,7 @@ input[type=submit], #instructionGig, #instructionGigClose {
    cursor: pointer;
 }
   
- input[type=submit]:hover, #instructionGig:hover, #instructionGigClose:hover {
+ input[type=submit]:hover, #recommendShowHide:hover, #instructionGigClose:hover {
    background-color: #2d4ace;
 }
 

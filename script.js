@@ -117,29 +117,21 @@ $(document).ready(function(){
 		var bandGig = $("#bandGig").val();
 		if(bandSearch(bandGig, rock)){
 			gigFiller(bandGig, rock, venue);
-			$("#instructionGig").click(function(){
-				$("#resultGig").slideDown("slow");
-			})
 		} else if(bandSearch(bandGig, rnb)){
 			gigFiller(bandGig, rnb, venue);
-			$("#instructionGig").click(function(){
-				$("#resultGig").slideDown("slow");
-			})
 		} else if(bandSearch(bandGig, pop)){
 			gigFiller(bandGig, pop, venue);
-			$("#instructionGig").click(function(){
-				$("#resultGig").slideDown("slow");
-			})
 		} else if(bandSearch(bandGig, country)){
 			gigFiller(bandGig, country, venue);
-			$("#instructionGig").click(function(){
-				$("#resultGig").slideDown("slow");
-			})
 		}
 	})
 	
 	$(document).on("click", "#instructionGigClose", function(){
-		$("#resultGig").slideUp("slow");
+		$("#resultGig").toggle("slow");
+	})
+	
+	$(document).on("click", "#recommendShowHide", function(){
+		$("#suggestions").toggle("slow");
 	})
 });
 

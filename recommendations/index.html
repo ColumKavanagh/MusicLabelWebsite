@@ -25,41 +25,45 @@
 				<a class="nav" href="../gigs/index.html">Gigs</a>
 				<a class="nav" href="../contact/index.html">Contact</a>
 			</nav>
-				<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
-				<form id="recommendForm">
-					<div class="row">
-						<div class="col-md-12">
-							<label for="genreList">Select Music Genre:</label>
-						</div>
+			<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
+			<form id="recommendForm">
+				<div class="row">
+					<div class="col-md-12">
+						<label for="genreList">Select Music Genre:</label>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<select id="genreList" name="genreList" style="width:100%;">
-								<option id="default" value=""></option>
-								<option id="rock" value="rock">Rock</option>
-								<option id="rnb" value="rnb">RNB</option>
-								<option id="pop" value="pop">Pop</option>
-								<option id="country" value="country">Country</option>
-							</select>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<select id="genreList" name="genreList" style="width:100%;">
+							<option id="default" value=""></option>
+							<option id="rock" value="rock">Rock</option>
+							<option id="rnb" value="rnb">RNB</option>
+							<option id="pop" value="pop">Pop</option>
+							<option id="country" value="country">Country</option>
+						</select>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<label for="text">Search Similar bands: (Case sensitive)</label>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<label for="text">Search Similar bands: (Case sensitive)</label>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<input type="text" id="band" value="" style="width:100%;"/>
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" id="band" value="" style="width:100%;"/>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<input type="submit" id="submit" value="Search Recommendations" />
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="submit" id="submit" value="Search Recommendations" />
 					</div>
-				</form>
-			
+				</div>
+			</form>
+			<div class="row">
+				<div class="col-md-6">
+					<button id="recommendShowHide">Click here to show/hide results.</button>
+				</div>
+			</div>
             <div class="row">
                 <div class = "col-md-12">
 					<!--Band recommendations will show here with the name, genre and an image (images are pictures that I took at home to avoid copyright issues), Daniel Morrissey 21118701-->

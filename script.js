@@ -54,9 +54,10 @@ $(document).ready(function(){
 		$("#suggestions").text("");
 		var bandHolder = "";
 		for(var i = 0; i < genre.length; i++){
-			bandHolder+=genre[i] + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".jpg' class='suggestion' style='height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
+			bandHolder+= "<h3>" + genre[i] + "</h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 		}
 		$("#suggestions").html(bandHolder);
+		$("#suggestions").css("border-style", "solid").css("padding", "1em");
 	}
 	
 	//function that shows band recommendations based on text input, skips the text input band. Daniel Morrissey 21118701
@@ -65,12 +66,13 @@ $(document).ready(function(){
 		var bandHolder="";
 		for(var i = 0; i < genre.length; i++){				
 			if(genre[i]!=band){
-				bandHolder+=genre[i] + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] + ".jpg' class='suggestion' style='height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
+				bandHolder+="<h3>" + genre[i] + "</h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 			} else{
 				continue;				
 			}
 		}
 		$("#suggestions").html(bandHolder);
+		$("#suggestions").css("border-style", "solid").css("padding", "1em");
 	}
 	
 	//function that searches for a band in each genre array, Daniel Morrissey 21118701
@@ -101,9 +103,10 @@ $(document).ready(function(){
 			return db < da ? -1 : db > da ? 1 : 0
 		});
 		for(var i = 0; i < genre.length; i++){
-			bandGigHolder+="<h3>" + band + "</h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
+			bandGigHolder+="<h3>" + band + "</h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
 		}
 		$("#resultGig").html(bandGigHolder);
+		$("#resultGig").css("border-style", "solid").css("padding", "1em");
 	}
 	
 	// random date generator, Daniel Morrissey 21118701

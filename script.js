@@ -22,9 +22,10 @@ $(document).ready(function(){
 			$("#suggestions").text("Either select a music genre or search similar artists");
 		} else {
 			// search based off of genre, Daniel Morrissey 21118701
-			if(genre.length==0){
-				$("#suggestions").text("");
+			if(genre.length==0 && band.length==0){
+				$("#suggestions").text("").css("border-style", "none");
 			} else{
+				// shows bands in respect to their genre
 				if(genre == "rock"){
 					suggestionFiller(rock, "Rock");
 				} else if(genre == "rnb"){
@@ -36,15 +37,20 @@ $(document).ready(function(){
 				}
 			}
 			
-			// search off band name, Daniel Morrissey 21118701
-			if(bandSearch(band, rock)){
-				bandSearchFiller(rock, band, "Rock");
-			} else if(bandSearch(band, rnb, "RnB")){
-				bandSearchFiller(rnb, band);
-			} else if(bandSearch(band, pop)){
-				bandSearchFiller(pop, band, "Pop");
-			} else if(bandSearch(band, country)){
-				bandSearchFiller(country, band, "Country");
+			// search based off of band name, Daniel Morrissey 21118701
+			if(band.length==0 && genre.length == 0){
+				$("#suggestions").text("").css("border-style", "none");
+			} else{
+				// each if searches a band in each genre and if true will show similar bands but won't show band in input
+				if(bandSearch(band, rock)){
+					bandSearchFiller(rock, band, "Rock");
+				} else if(bandSearch(band, rnb)){
+					bandSearchFiller(rnb, band, "RnB");
+				} else if(bandSearch(band, pop)){
+					bandSearchFiller(pop, band, "Pop");
+				} else if(bandSearch(band, country)){
+					bandSearchFiller(country, band, "Country");
+				}
 			}
 		}
 	})
@@ -93,7 +99,7 @@ $(document).ready(function(){
 	
 	// function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort), Daniel Morrissey 21118701
 	function gigFiller(band, genre, venue){
-		$("#resultGig").html("");
+		$("#resultGig").text("");
 		var bandGigHolder="";
 		var date = [randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date())];
 		date.sort(function(a,b){
@@ -118,14 +124,19 @@ $(document).ready(function(){
 	$(document).on("submit", "#formGig", function(event){
 		event.preventDefault();
 		var bandGig = $("#bandGig").val();
-		if(bandSearch(bandGig, rock)){
-			gigFiller(bandGig, rock, venue);
-		} else if(bandSearch(bandGig, rnb)){
-			gigFiller(bandGig, rnb, venue);
-		} else if(bandSearch(bandGig, pop)){
-			gigFiller(bandGig, pop, venue);
-		} else if(bandSearch(bandGig, country)){
-			gigFiller(bandGig, country, venue);
+		if(bandGig.length == 0){
+			$("#resultGig").text("").css("border-style", "none");
+		} else {
+			// each if searches a band in each genre and if true will show past events in order of date most recent first
+			if(bandSearch(bandGig, rock)){
+				gigFiller(bandGig, rock, venue);
+			} else if(bandSearch(bandGig, rnb)){
+				gigFiller(bandGig, rnb, venue);
+			} else if(bandSearch(bandGig, pop)){
+				gigFiller(bandGig, pop, venue);
+			} else if(bandSearch(bandGig, country)){
+				gigFiller(bandGig, country, venue);
+			}
 		}
 	})
 	

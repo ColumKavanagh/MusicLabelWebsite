@@ -111,6 +111,44 @@ $(document).ready(function(){
 		for(var i = 0; i < genre.length; i++){
 			bandGigHolder+="<h3>" + band + "</h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
 		}
+		switch(band){
+			case "Rise Against":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/Av7QpmwnRnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Green Day":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/uPMDPiNG4TE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Metallica":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/87by1DjfxLw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Taylor Swift":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/J2uxc01fUXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Pink":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/RaCbtFXXTaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Justin Bieber":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/VBSsiTVXbd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Rihanna":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/2-ST8O5vMo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Beyonce":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/jiGmdxH_53U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Drake":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/-m9CN3SEfgY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "Johnny Cash":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/xObSJWIWui0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+			case "John Denver":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/KSmh6FO3T74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;	
+			case "Steve Earle":
+				bandGigHolder+='<iframe src="https://www.youtube.com/embed/ohipg8cPm5s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+				break;
+		}
 		$("#resultGig").html(bandGigHolder);
 		$("#resultGig").css("border-style", "solid").css("padding", "1em");
 	}

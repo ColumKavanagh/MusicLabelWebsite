@@ -7,23 +7,25 @@ function init(){
 
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
 $(document).ready(function(){
-	let bands = ["Rise Against", "Green Day", "Metallica", "Taylor Swift", "Pink", "Justin Bieber", "Rihanna", "Beyonce", "Drake", "Johnny Cash", "John Denver", "Steve Earle"];
+	let bands = ["rise against", "green day", "metallica", "taylor swift", "pink", "justin bieber", "rihanna", "beyonce", "drake", "johnny cash", "john denver", "steve earle"];
 	let venue = ["Croke Park", "Old Trafford", "Turners Cross"];
-	let rock = ["Rise Against", "Green Day", "Metallica"];
-	let rnb = ["Rihanna", "Beyonce", "Drake"];
-	let pop = ["Taylor Swift", "Pink", "Justin Bieber"];
-	let country = ["Johnny Cash", "John Denver", "Steve Earle"];
+	let rock = ["rise against", "green day", "metallica"];
+	let rnb = ["rihanna", "beyonce", "drake"];
+	let pop = ["taylor swift", "pink", "justin bieber"];
+	let country = ["johnny cash", "john denver", "steve earle"];
 	
 	$(document).on("submit", "#recommendForm", function(event){
 		event.preventDefault();
 		var genre = $("#genreList").val();
-		var band = $("#band").val();
-		if(genre.length>0 && band.length>0){
-			$("#suggestions").text("Either select a music genre or search similar artists");
+		var band = $("#band").val().toLowerCase();
+		if(/[^a-zA-Z]+$/.test(band)){
+			$("#suggestions").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
+		} else if(genre.length>0 && band.length>0){
+			$("#suggestions").text("Either select a music genre or search similar artists").css("color", "#ff0000").css("border-style", "none");
 		} else {
 			// search based off of genre, Daniel Morrissey 21118701
 			if(genre.length==0 && band.length==0){
-				$("#suggestions").text("").css("border-style", "none");
+				$("#suggestions").text("Please select a genre or enter an artist or band").css("color", "#ff0000").css("border-style", "none");
 			} else{
 				// shows bands in respect to their genre
 				if(genre == "rock"){
@@ -39,7 +41,7 @@ $(document).ready(function(){
 			
 			// search based off of band name, Daniel Morrissey 21118701
 			if(band.length==0 && genre.length == 0){
-				$("#suggestions").text("").css("border-style", "none");
+				$("#suggestions").text("Please select a genre or enter an artist or band").css("color", "#ff0000").css("border-style", "none");
 			} else{
 				// each if searches a band in each genre and if true will show similar bands but won't show band in input
 				if(bandSearch(band, rock)){
@@ -50,6 +52,8 @@ $(document).ready(function(){
 					bandSearchFiller(pop, band, "Pop");
 				} else if(bandSearch(band, country)){
 					bandSearchFiller(country, band, "Country");
+				} else if(genre.length==0 && band.length>0) {
+					$("#suggestions").text("No artist or band was found").css("color", "#ff0000").css("border-style", "none");
 				}
 			}
 		}
@@ -57,10 +61,10 @@ $(document).ready(function(){
 	
 	//function that shows band recommendations based on the select tag, Daniel Morrissey 21118701
 	function suggestionFiller(genre, musicGenre){
-		$("#suggestions").text("");
+		$("#suggestions").text("").css("color", "#000000");
 		var bandHolder = "";
 		for(var i = 0; i < genre.length; i++){
-			bandHolder+= "<h3>" + genre[i] + "</h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
+			bandHolder+= "<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 		}
 		$("#suggestions").html(bandHolder);
 		$("#suggestions").css("border-style", "solid").css("padding", "1em");
@@ -68,11 +72,11 @@ $(document).ready(function(){
 	
 	//function that shows band recommendations based on text input, skips the text input band. Daniel Morrissey 21118701
 	function bandSearchFiller(genre, band, musicGenre){
-		$("#suggestions").text("");
+		$("#suggestions").text("").css("color", "#000000");
 		var bandHolder="";
 		for(var i = 0; i < genre.length; i++){				
 			if(genre[i]!=band){
-				bandHolder+="<h3>" + genre[i] + "</h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
+				bandHolder+="<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 			} else{
 				continue;				
 			}
@@ -99,7 +103,7 @@ $(document).ready(function(){
 	
 	// function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort), Daniel Morrissey 21118701
 	function gigFiller(band, genre, venue){
-		$("#resultGig").text("");
+		$("#resultGig").text("").css("color", "#000000");
 		var bandGigHolder="";
 		var date = [randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date())];
 		date.sort(function(a,b){
@@ -109,43 +113,43 @@ $(document).ready(function(){
 			return db < da ? -1 : db > da ? 1 : 0
 		});
 		for(var i = 0; i < genre.length; i++){
-			bandGigHolder+="<h3>" + band + "</h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
+			bandGigHolder+="<h3><i style='text-transform:capitalize'>" + band + "</i></h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
 		}
 		switch(band){
-			case "Rise Against":
+			case "rise against":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/Av7QpmwnRnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Green Day":
+			case "green day":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/uPMDPiNG4TE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Metallica":
+			case "metallica":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/87by1DjfxLw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Taylor Swift":
+			case "taylor swift":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/J2uxc01fUXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Pink":
+			case "pink":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/RaCbtFXXTaw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Justin Bieber":
+			case "justin bieber":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/VBSsiTVXbd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Rihanna":
+			case "rihanna":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/2-ST8O5vMo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Beyonce":
+			case "beyonce":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/jiGmdxH_53U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Drake":
+			case "drake":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/-m9CN3SEfgY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "Johnny Cash":
+			case "johnny cash":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/xObSJWIWui0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
-			case "John Denver":
+			case "john denver":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/KSmh6FO3T74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;	
-			case "Steve Earle":
+			case "steve earle":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/ohipg8cPm5s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 				break;
 		}
@@ -161,9 +165,11 @@ $(document).ready(function(){
 	// function that shows events, Daniel Morrissey 21118701
 	$(document).on("submit", "#formGig", function(event){
 		event.preventDefault();
-		var bandGig = $("#bandGig").val();
-		if(bandGig.length == 0){
-			$("#resultGig").text("").css("border-style", "none");
+		var bandGig = $("#bandGig").val().toLowerCase();
+		if(/[^a-zA-Z]+$/.test(bandGig)){
+			$("#resultGig").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
+		} else if(bandGig.length == 0){
+			$("#resultGig").text("Please enter an artist or band").css("color", "#ff0000");
 		} else {
 			// each if searches a band in each genre and if true will show past events in order of date most recent first
 			if(bandSearch(bandGig, rock)){
@@ -174,6 +180,8 @@ $(document).ready(function(){
 				gigFiller(bandGig, pop, venue);
 			} else if(bandSearch(bandGig, country)){
 				gigFiller(bandGig, country, venue);
+			} else {
+				$("#resultGig").text("No artist or band was found").css("color", "#ff0000").css("border-style", "none");
 			}
 		}
 	})

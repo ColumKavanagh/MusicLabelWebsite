@@ -32,7 +32,9 @@
 	border: 0.1em solid #5DFDCB;
 }
 
-
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
 /*
 css that styles the nav, Daniel Morrissey 21118701 and Colum Kavanagh
 */
@@ -83,8 +85,8 @@ styles nav logo for mobiles, Daniel Morrissey 21118701
 }
 
 .nav-container a:hover{
-	background-color: #000;
-	color: #ffffff;
+	border-color: #B88615;
+	color:#5DFDCB;
 }
 /*
 styles band recommendations images, Daniel Morrissey 21118701
@@ -224,6 +226,19 @@ input[type=text], select {
 
   /* HOMEPAGE SLIDER CSS - Colum still needs to tweak this)*/
 
+.button-div{
+	display: flex;
+	justify-content: center;
+}
+#slideshowButton{
+	background-color: #19191E;
+	color: #5DFDCB;
+	border: solid 2px #5DFDCB;
+	font-size: x-large;
+}
+#slideshowButton:hover{
+	border: solid 2px #B88615;
+}  
 .slider-image{
 	height: 400px;
 }

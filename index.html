@@ -19,14 +19,14 @@
         <div class="container">
 			<!--Nav bar that looks the same on all pages, Daniel Morrissey 21118701-->
 			<nav class="nav-container sticky-top">
-				<img src="images/logo250x250.jpg" id="logo" alt="Logo"/>
+				<img src="images/logo250x250.jpg" height="250px" width = "250px" id="logo" alt="Logo"/>
 				<a class="nav" href="index.html">Home</a>
 				<a class="nav" href="recommendations/index.html">Recommendations</a>
 				<a class="nav" href="gigs/index.html">Gigs</a>
 				<a class="nav" href="contact/index.html">Contact</a>
 			</nav>
             <div class="row">
-            <!--Inro text on homepage, Colum Kavanagh-->
+            <!--Intro text on homepage, Colum Kavanagh-->
                 <div class = "col">
                     <p>Bass-ic Records is Ireland's largest music label representating some of the country's best talent.
 
@@ -44,59 +44,66 @@
                     </p>
                 </div>
             </div>
+         
             <br/> 
-
-
-
-            <!-- Slideshow container: This is a 'carouselExampleDark' template from the Bootstrap documentation that I have adjusted to suit our needs 
-                by changing the timings in JS, adjusting colours and fonts in our CSS file along with what info it shows when used on smaller screens -->
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            
+            <!-- Slideshow container: This is a 'bass-icCarousel' template from the Bootstrap documentation that I have adjusted to suit our needs 
+                by changing the timings in JS, adjusting colours and fonts in our CSS file along with what captions it shows when used on smaller screens -->
+            
+            <div hidden id="bass-icCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" class="slide-indicator"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2" class="slide-indicator"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3" class="slide-indicator"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4" class="slide-indicator"></button>
+                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" class="slide-indicator"></button>
+                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="slide-indicator"></button>
+                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="slide-indicator"></button>
+                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="3" aria-label="Slide 4" class="slide-indicator"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="images/John Denver.jpg" class="d-block w-100 slider-image" data-bs-interval="1000" alt="Image of the John Denver.">
+                    <div class="carousel-item active" id="slide1">
+                        <img src="images/John Denver.jpg" class="d-block w-100 slider-image" alt="Image of the John Denver.">
                         <div class="carousel-caption d-md-block">
                             <h5 class = "slide-text slide-title">John Denver</h5>
                             <p class="d-none d-md-block slide-text">Country music at its finest.</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/Justin Bieber.jpg" class="d-block w-100 slider-image" data-bs-interval="1000"  alt="Image of Justin Bieber.">
+                    <div class="carousel-item" id="slide1">
+                        <img src="images/Justin Bieber.jpg" class="d-block w-100 slider-image" alt="Image of Justin Bieber.">
                         <div class="carousel-caption d-md-block">
                             <h5 class = "slide-text slide-title">Justin Bieber</h5>
                             <p class="d-none d-md-block slide-text">All of you Beliebers out there - we belieb in you!</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/Green Day.jpg" class="d-block w-100 slider-image" data-bs-interval="1000" alt="Image of Green Day.">
+                    <div class="carousel-item" id="slide1">
+                        <img src="images/Green Day.jpg" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Green Day.">
                         <div class="carousel-caption d-md-block">
                             <h5 class = "slide-text slide-title">Green Day</h5>
                             <p class="d-none d-md-block slide-text">Check out our 'Gigs' page to see any upcoming Green Day concerts.</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/Rihanna.jpg" class="d-block w-100 slider-image" data-bs-interval="1000" alt="Image of Rihanna.">
+                    <div class="carousel-item" id="slide1">
+                        <img src="images/Rihanna.jpg" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Rihanna.">
                         <div class="carousel-caption d-md-block">
                         <h5 class = "slide-text slide-title">Rhihanna</h5>
                         <p class="d-none d-md-block slide-text">From the shores of beautiful Barbados, it's Rihanna!</p>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev slide-button" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <button class="carousel-control-prev slide-button" type="button" data-bs-target="#bass-icCarousel" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next slide-button" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <button class="carousel-control-next slide-button" type="button" data-bs-target="#bass-icCarousel" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
             
+   
+              <div class="row">
+                <div class = "col-md-12 button-div">
+                    <button id="slideshowButton" onclick="toggleSlideshow();">VIEW SLIDESHOW</button>
+                </div>
+            </div>
+
             <!--LOGO at bottom of page-->
             <div class="row bottomLogo">
                 <div class = "col-md-6">

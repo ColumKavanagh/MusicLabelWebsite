@@ -187,12 +187,23 @@ $(document).ready(function(){
 	})
 });
 
-//Homepage SLIDER code, Colum Kavanagh - WORK-IN-PROGRESS
-// var myCarousel = document.querySelector('#carouselExampleDark')
-// var carousel = new bootstrap.Carousel(myCarousel)
-// carousel.ride = "carousel";
-// carousel.interval = 500;
+//Raw Javascript for showing/hiding homepage slideshow and adjusting the interval between each slide, Colum Kavanagh
+var slideshow = document.getElementById("bass-icCarousel");
+var slideshowButton = document.getElementById("slideshowButton")
 
+function toggleSlideshow(){
+	if(slideshow.hidden==true){
+		slideshow.removeAttribute("hidden");
+		var x = document.getElementsByClassName("carousel-item");
+		for (i = 0; i < x.length; i++) {
+		x[i].setAttribute("data-bs-interval", "2000");//setting the interval between each slide to 2 seconds rather than the longer default time-length from Bootstrap
+		}
+		slideshowButton.innerHTML="HIDE SLIDESHOW"
+	}else{
+		slideshow.setAttribute("hidden", "true");
+		slideshowButton.innerHTML="VIEW SLIDESHOW"
+	}
+}
 
 
 

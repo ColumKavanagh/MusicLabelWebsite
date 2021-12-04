@@ -4,13 +4,14 @@ function formSubmit(){
   	event.preventDefault();
   	//hide form
 	var form=document.getElementById("form");
-	form.style.display="none";	
+	form.style.display="none";
+	//hide 'Submit' button
+	var button=document.getElementById("button");
+	button.style.display="none";	
 	//get data from form
 	var name = document.getElementById("name").value;
-	//insert data into paragraph
-	document.getElementById("name").innerHTML=name;
-	//show the paragraph
+	//insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
 	var p=document.getElementById("showSubmit");
-	p.style.display="block";
+	p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch shortly.";
 }
 

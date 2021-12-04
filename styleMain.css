@@ -38,6 +38,8 @@ a:link, a:visited, a:hover, a:active {
 /*
 css that styles the nav, Daniel Morrissey 21118701 and Colum Kavanagh
 */
+.logo-image{
+}
 .nav-container{
 	display: flex;
 	flex-direction: row;
@@ -64,9 +66,23 @@ media query that changes the nav to column for mobiles, Daniel Morrissey 2111870
 }
 
 /*
-styles the logo in nav and bottom of page, Daniel Morrissey 21118701
+styles the logo in nav and bottom of page, Daniel Morrissey & Colum Kavanagh
 */
-#logo, .logo{
+.logo-image-link{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-left: -10%;
+	margin-right: -10%;
+}
+#logo{
+	height: 40%;
+	width: 	40%;
+	margin: 0.5em;
+	border-radius: 50%;
+	border: 2px solid #B88615;
+}
+.logo{
 	height: 10%;
 	width: 10%;
 	margin: 0.5em;
@@ -224,7 +240,7 @@ input[type=text], select {
 	margin-bottom:0;
   }
 
-  /* HOMEPAGE SLIDER CSS - Colum still needs to tweak this)*/
+  /* HOMEPAGE SLIDER CSS - Colum Kavanagh*/
 
 .button-div{
 	display: flex;

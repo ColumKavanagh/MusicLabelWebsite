@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", init);
-// adds curreent year after copyright symbol, Daniel Morrissey 21118701
+// adds current year after copyright symbol, Daniel Morrissey 21118701
 function init(){
 	let currentDate = document.getElementById("currentYear");
 	let currentDate1 = document.getElementById("currentYear1");

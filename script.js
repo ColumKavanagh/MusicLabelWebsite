@@ -2,7 +2,9 @@ window.addEventListener("DOMContentLoaded", init);
 // adds curreent year after copyright symbol, Daniel Morrissey 21118701
 function init(){
 	let currentDate = document.getElementById("currentYear");
+	let currentDate1 = document.getElementById("currentYear1");
 	currentDate.innerHTML = "&copy;" + new Date().getFullYear();
+	currentDate1.innerHTML = "&copy; " + new Date().getFullYear();
 }
 
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701

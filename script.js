@@ -2,9 +2,7 @@ window.addEventListener("DOMContentLoaded", init);
 // adds current year after copyright symbol, Daniel Morrissey 21118701
 function init(){
 	let currentDate = document.getElementById("currentYear");
-	let currentDate1 = document.getElementById("currentYear1");
-	currentDate.innerHTML = "&copy;" + new Date().getFullYear();
-	currentDate1.innerHTML = "&copy; " + new Date().getFullYear();
+	currentDate.innerHTML = "&copy; " + new Date().getFullYear();
 }
 
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
@@ -70,6 +68,7 @@ $(document).ready(function(){
 		}
 		$("#suggestions").html(bandHolder);
 		$("#suggestions").css("border-style", "solid").css("padding", "1em");
+		$("#recommendShowHide").css("visibility", "visible");
 	}
 	
 	//function that shows band recommendations based on text input, skips the text input band. Daniel Morrissey 21118701
@@ -85,6 +84,7 @@ $(document).ready(function(){
 		}
 		$("#suggestions").html(bandHolder);
 		$("#suggestions").css("border-style", "solid").css("padding", "1em");
+		$("#recommendShowHide").css("visibility", "visible");
 	}
 	
 	//function that searches for a band in each genre array, Daniel Morrissey 21118701
@@ -157,6 +157,7 @@ $(document).ready(function(){
 		}
 		$("#resultGig").html(bandGigHolder);
 		$("#resultGig").css("border-style", "solid").css("padding", "1em");
+		$("#instructionGigClose").css("visibility", "visible");
 	}
 	
 	// random date generator, Daniel Morrissey 21118701

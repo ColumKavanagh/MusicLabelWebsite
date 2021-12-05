@@ -311,6 +311,10 @@ iframe{
 .footer-dark{
 	color: #5DFDCB;
 }
+
+#recommendShowHide, #instructionGigClose{
+	visibility: hidden;
+}
   
   
   

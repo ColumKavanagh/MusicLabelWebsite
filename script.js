@@ -16,8 +16,8 @@ $(document).ready(function(){
 	
 	$(document).on("submit", "#recommendForm", function(event){
 		event.preventDefault();
-		var genre = $("#genreList").val();
-		var band = $("#band").val().toLowerCase();
+		var genre = $("#genreList").val().trim();
+		var band = $("#band").val().toLowerCase().trim();
 		if(/[^a-zA-Z]+$/.test(band)){
 			$("#suggestions").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
 		} else if(genre.length>0 && band.length>0){
@@ -168,7 +168,7 @@ $(document).ready(function(){
 	// function that shows events, Daniel Morrissey 21118701
 	$(document).on("submit", "#formGig", function(event){
 		event.preventDefault();
-		var bandGig = $("#bandGig").val().toLowerCase();
+		var bandGig = $("#bandGig").val().toLowerCase().trim();
 		if(/[^a-zA-Z]+$/.test(bandGig)){
 			$("#resultGig").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
 		} else if(bandGig.length == 0){

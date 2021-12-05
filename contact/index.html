@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="../styleCK.css"/>
         <link rel="stylesheet" href="../styleDM.css"/>
 		<link rel="icon" href="../images/favicon.ico">
-        <link rel="stylesheet" href="styleCOM.css"/>
 		<link rel="stylesheet" href="style.css"/>
     </head>
 
@@ -33,7 +32,7 @@
 				</div>
 				<div class="row">
 
-					<form id="form">
+					<form id="form" onsubmit="validateForm()" method="post">
 						<label for="name">Name</label>
 					  <input type="text" id="name" name="name" placeholder="Your name">
 					  <label for="email">Email Address - Required</label>
@@ -44,7 +43,7 @@
 						<option value="uk">United Kingdom</option>
 						<option value="international">International</option>
 					  </select>
-					  <label for="message">Message</label>
+					  <label for="message">Message - Required</label>
 					  <textarea id="message" name="message" placeholder="Write your message here..." style="height:170px"></textarea>
 					  <button id="button" onclick="formSubmit()">Submit</button>
 					</form> 

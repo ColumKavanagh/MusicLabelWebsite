@@ -216,6 +216,67 @@ function toggleSlideshow(){
 	}
 }
 
+//Javascript for Contact Form
+
+//VALIDATION
+let valid = false;
+function validateForm(){
+const form = document.getElementById("form");
+const email = document.getElementById('email').value;
+const name = document.getElementById('name');
+const message = document.getElementById('message').value;
+	
+	event.preventDefault();
+	//email address required
+	if (email.length==0) {
+		alert("Please enter your email address.");
+		email.focus();
+		event.preventDefault();
+		//return false;
+	} else if (!emailIsValid(email)) {
+		alert("Please enter a valid email address.");
+		email.focus();
+	} else if (message === "") {
+		//message content required
+		alert("Please enter your message.");
+		message.focus();
+	} else {
+		valid = true; // Can submit the form data to the server
+	}
+}
+
+//verify email address
+const emailIsValid = email => {
+	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+//SUBMIT FORM AND DISPLAY MESSAGE
+
+var button = document.getElementById('button');
+const form=document.getElementById("form");
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+
+	function formSubmit(){	
+	//get email data from form
+	if(valid==true){
+	var email = document.getElementById("email").value;
+	//hide form
+	var form=document.getElementById("form");
+	form.style.display="none";
+	//hide 'Submit' button
+	var button=document.getElementById("button");
+	button.style.display="none";
+	//get name data from form
+	var name = document.getElementById("name").value;	
+	//insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
+	var p=document.getElementById("showSubmit");
+	p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch via "+email+" shortly.";
+	}
+	}
+
+button.addEventListener('click', validateForm);
+button.addEventListener('click', formSubmit);
 
 
 

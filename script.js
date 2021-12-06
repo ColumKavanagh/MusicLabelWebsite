@@ -304,12 +304,12 @@ $(document).ready(function(){
 			//VALIDATION of pop-up form input
 				let validPopupDetails = false;
 				function validateForm(){
-					var popupEmail = document.getElementById('popup-email').value;
-					var popupName = document.getElementById('popup-name').value;
-					var popupNameDom = document.getElementById('popup-name');
+					var popupEmail = $('#popup-email').val();
+					var popupName = $('#popup-name').val();
+					var popupNameDom = $('#popup-name');
 						//name is required
 						if (popupName.length==0) {
-							
+							alert("Please enter your name.");
 							popupNameDom.focus();
 							event.preventDefault;
 						}else if(popupEmail.length==0) {

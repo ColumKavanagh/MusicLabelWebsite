@@ -275,8 +275,8 @@ const email = document.getElementById('email');
 	}
 	}
 
-// button.addEventListener('click', validateForm);
-// button.addEventListener('click', formSubmit);
+button.addEventListener('click', validateForm);
+button.addEventListener('click', formSubmit);
 
 
 

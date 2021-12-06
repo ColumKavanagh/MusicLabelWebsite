@@ -230,7 +230,8 @@ function validateForm(){
 		//email address required
 		if (email.length==0) {
 			alert("Please enter your email address.");
-			email.focus();
+			var emailDOM = document.getElementById('email');
+			emailDOM.focus();
 			event.preventDefault();
 			//return false;
 		} else if (!emailIsValid(email)) {

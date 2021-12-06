@@ -209,10 +209,10 @@ function toggleSlideshow(){
 		for (i = 0; i < x.length; i++) {
 		x[i].setAttribute("data-bs-interval", "2000");//setting the interval between each slide to 2 seconds rather than the longer default time-length from Bootstrap
 		}
-		slideshowButton.innerHTML="HIDE SLIDESHOW"
+		slideshowButton.innerHTML="Hide Slideshow"
 	}else{
 		slideshow.setAttribute("hidden", "true");
-		slideshowButton.innerHTML="VIEW SLIDESHOW"
+		slideshowButton.innerHTML="View Slideshow"
 	}
 }
 
@@ -221,28 +221,28 @@ function toggleSlideshow(){
 //VALIDATION
 let valid = false;
 function validateForm(){
-const form = document.getElementById("form");
-const email = document.getElementById('email').value;
-const name = document.getElementById('name');
-const message = document.getElementById('message').value;
-	
-	event.preventDefault();
-	//email address required
-	if (email.length==0) {
-		alert("Please enter your email address.");
-		email.focus();
+	const form = document.getElementById("form");
+	const email = document.getElementById('email').value;
+	const name = document.getElementById('name');
+	const message = document.getElementById('message').value;
+		
 		event.preventDefault();
-		//return false;
-	} else if (!emailIsValid(email)) {
-		alert("Please enter a valid email address.");
-		email.focus();
-	} else if (message === "") {
-		//message content required
-		alert("Please enter your message.");
-		message.focus();
-	} else {
-		valid = true; // Can submit the form data to the server
-	}
+		//email address required
+		if (email.length==0) {
+			alert("Please enter your email address.");
+			email.focus();
+			event.preventDefault();
+			//return false;
+		} else if (!emailIsValid(email)) {
+			alert("Please enter a valid email address.");
+			email.focus();
+		} else if (message === "") {
+			//message content required
+			alert("Please enter your message.");
+			message.focus();
+		} else {
+			valid = true; // Can submit the form data to the server
+		}
 }
 
 //verify email address
@@ -250,7 +250,7 @@ const emailIsValid = email => {
 	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-//SUBMIT FORM AND DISPLAY MESSAGE
+//SUBMIT Contact FORM AND DISPLAY MESSAGE
 
 var button = document.getElementById('button');
 const form=document.getElementById("form");
@@ -275,13 +275,14 @@ const email = document.getElementById('email');
 	}
 	}
 
-button.addEventListener('click', validateForm);
-button.addEventListener('click', formSubmit);
+// button.addEventListener('click', validateForm);
+// button.addEventListener('click', formSubmit);
 
 
 
-//POP-UP on homepage 
-var delay = 600; // milliseconds
+//POP-UP ON HOMEPAGE
+
+	var delay = 600; // milliseconds
     var cookie_expire = 0; // days
 
     var cookie = localStorage.getItem("list-builder");
@@ -289,69 +290,72 @@ var delay = 600; // milliseconds
         cookie = 0;
     }
 
-    if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
+   if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
         $("#list-builder").delay(delay).fadeIn("fast", () => {
             $("#popup-box").fadeIn("fast", () => {});
-        });
+        	});
+			//VALIDATION of pop-up form input
+				let validPopupDetails = false;
+				function validateForm(){
+					var popupEmail = document.getElementById('popup-email').value;
+					var popupName = document.getElementById('popup-name').value;
+						//name is required
+						if (popupName.length==0) {
+							alert("Please enter your first name.");
+							popupName.focus();
+							event.preventDefault;
+						}else if(popupEmail.length==0) {
+							alert("Please enter your email address.");
+						} else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(popupEmail))) {
+							alert("Please enter a valid email address.");
+						} else {
+							validPopupDetails = true; // Can submit the form data to the server
+						}
+				}
 
-//VALIDATION of pop-up form input
-    let valid = false;
-    function validateForm(){
-        var popupEmail = document.getElementById('popup-email').value;
-        var popupName = document.getElementById('popup-name').value;
-            //name is required
-            if (popupName.length==0) {
-                alert("Please enter your first name.");
-            }else if(popupEmail.length==0) {
-                alert("Please enter your email address.");
-            } else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(popupEmail))) {
-                alert("Please enter a valid email address.");
-            } else {
-                valid = true; // Can submit the form data to the server
-            }
-    }
+				$("#submitButton").click(submitPopup);
+				
+				function submitPopup() {
+					validateForm();
+					event.preventDefault;
+					if (validPopupDetails){
+					$("#popup-box-content").html("<img src='images/close.png' class='popup-close'/><p style='text-align: center'> Thank you for subscribing to the Bass-ic Records newsletter!</p>");
+					$(".popup-close").click(closePopup);
+					}
+				}       
+					
+			/*In a real-life scenario, when someone click our 'submit' button on the pop-up form, the 
+			content inputted by th user to our pop-up form would be sent in a 
+			'post' request to the URL specified in the 'action' attribute of our html 
+			form.
+			The 'ajax' funtion that would send this post request would look like the following:
 
-    $("#submitButton").click(submitPopup);
-    
-    function submitPopup() {
-        validateForm();
-        if (valid){
-        $("#popup-box-content").html("<img src='close.png' class='popup-close'/><p style='text-align: center'> Thank you for subscribing to the Bass-ic Records newsletter!</p>");
-        $(".popup-close").click(closePopup);
-        }
-    }       
-        
-/*In a real-life scenario, when someone click our 'submit' button on the pop-up form, the 
-content inputted by th user to our pop-up form would be sent in a 
-'post' request to the URL specified in the 'action' attribute of our html 
-form i.e. "https://fictional_email_list_service_api.com" in our html fiel for the Bass-ic Records homepage.
-The 'ajax' funtion that would send this post request would look like the following:
+				$("#submitButton").click(() => {
+					validateForm();
+					if (valid){
+						$.ajax({
+							type: "POST",
+							url: $("#popup-form").attr("action"),
+							data: $("#popup-form").serialize(),
+							success: (data) => {
+								$("#popup-box-content").html("<p style='text-align: center'>Thank you for subscribing to Bass-ic Records newsletter!</p>");
+								$(".popup-close").click(closePopup);
+						}
+					}    
+					});
+				});
 
-    $("#submitButton").click(() => {
-        validateForm();
-        if (valid){
-            $.ajax({
-                type: "POST",
-                url: $("#popup-form").attr("action"),
-                data: $("#popup-form").serialize(),
-                success: (data) => {
-                    $("#popup-box-content").html("<p style='text-align: center'>Thank you for subscribing to Bass-ic Records newsletter!</p>");
-                    $(".popup-close").click(closePopup);
-            }
-        }    
-        });
-    });
+			*/
 
-*/
-//Function to close the pop-up: used after someone subscribes to the email ist or if they just want to skip past the pop-up
-    function closePopup(){
-        $("#list-builder, #popup-box").hide();
-        localStorage.setItem("list-builder", (new Date()).getTime());
-    }
+			//Function to close the pop-up: used after someone subscribes to the email ist or if they just want to skip past the pop-up
+				function closePopup(){
+					$("#list-builder, #popup-box").hide();
+					localStorage.setItem("list-builder", (new Date()).getTime());
+				}
 
-    $(".popup-close").click(closePopup);
+				$(".popup-close").click(closePopup);
 
-}
+	}
 
 
 

@@ -16,6 +16,28 @@
     </head>
 
     <body>
+        <!--POP-UP for email list builder-->
+        <!-- This homepage pop-up used to build an email subscriber list is based on a template 
+        from Polyglot Developer: we had to edit the code in our script.js file to allow for the fact that we aren't sending the 
+        form data anywhere in reality. See our script.js file for mre on this.-->
+        <div id="list-builder"></div>
+        <div id="popup-box">
+            <div id="popup-box-content">
+                <img src="images/close.png" class="popup-close"/>
+                <h2>Subscribe to the </br>Bass-ic Records newsletter</h2>
+                <p>
+                    Stay up to date on the latest upcoming shows from your </br>favourite artists 
+                    by subscribing to our newsletter.
+                </p>
+                <form id="popup-form">
+                    <input type="hidden" name="list" value="key_list_etc" />
+                    <input type="text" id="popup-name" placeholder="First Name" />
+                    <input type="text" id="popup-email" placeholder="Email Address" />
+                    <button id=submitButton name="subscribe">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <!--Actual HOMEPAGE-->
         <div class="container">
 			<!--Nav bar that looks the same on all pages, Daniel Morrissey 21118701-->
 			<nav class="nav-container">
@@ -64,21 +86,21 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" id="slide1">
-                        <img src="images/John_Denver.jpg" class="d-block w-100 slider-image" alt="Image of the John Denver.">
+                        <img src="images/John Denver.jpg" class="d-block w-100 slider-image" alt="Image of the John Denver.">
                         <div class="carousel-caption d-md-block">
                             <h5 class = "slide-text slide-title">John Denver</h5>
                             <p class="d-none d-md-block slide-text">Country music at its finest.</p>
                         </div>
                     </div>
                     <div class="carousel-item" id="slide2">
-                        <img src="images/Justin_Bieber.jpg" class="d-block w-100 slider-image" alt="Image of Justin Bieber.">
+                        <img src="images/Justin Bieber.jpg" class="d-block w-100 slider-image" alt="Image of Justin Bieber.">
                         <div class="carousel-caption d-md-block">
                             <h5 class = "slide-text slide-title">Justin Bieber</h5>
                             <p class="d-none d-md-block slide-text">All of you Beliebers out there - we belieb in you!</p>
                         </div>
                     </div>
                     <div class="carousel-item" id="slide3">
-                        <img src="images/Green_Day.jpg" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Green Day.">
+                        <img src="images/Green Day.jpg" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Green Day.">
                         <div class="carousel-caption d-md-block">
                             <h5 class = "slide-text slide-title">Green Day</h5>
                             <p class="d-none d-md-block slide-text">Check out our 'Gigs' page to see any upcoming Green Day concerts.</p>
@@ -105,7 +127,7 @@
    
               <div class="row">
                 <div class = "col-md-12 button-div">
-                    <button id="slideshowButton" onclick="toggleSlideshow();">VIEW SLIDESHOW</button>
+                    <button id="slideshowButton" onclick="toggleSlideshow();">View Slideshow</button>
                 </div>
             </div>
 
@@ -146,7 +168,7 @@
 
                         <div class="col item social"><a href="https://www.facebook.com" target="_blank"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com" target="_blank"><i class="icon ion-social-twitter"></i></a><a href="https://www.snapchat.com" target="_blank"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com" target="_blank"><i class="icon ion-social-instagram"></i></a></div>
                     </div>
-                    <p class="copyright">Bass-ic Music Label <span id="currentYear1"></span></p>
+                    <p class="copyright">Bass-ic Music Label <span id="currentYear"></span></p>
                 </div>
             </footer>
             </div>

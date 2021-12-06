@@ -172,7 +172,7 @@ $(document).ready(function(){
 		if(/[^a-zA-Z]+$/.test(bandGig)){
 			$("#resultGig").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
 		} else if(bandGig.length == 0){
-			$("#resultGig").text("Please enter an artist or band").css("color", "#ff0000");
+			$("#resultGig").text("Please select an artist or band").css("color", "#ff0000").css("border-style", "none");
 		} else {
 			// each if searches a band in each genre and if true will show past events in order of date most recent first
 			if(bandSearch(bandGig, rock)){

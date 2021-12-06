@@ -290,6 +290,7 @@ const email = document.getElementById('email');
         cookie = 0;
     }
 
+$(document).ready(function(){
    if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
         $("#list-builder").delay(delay).fadeIn("fast", () => {
             $("#popup-box").fadeIn("fast", () => {});
@@ -358,7 +359,7 @@ const email = document.getElementById('email');
 	}
 
 
-
+})
 
 
 

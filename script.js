@@ -1,8 +1,13 @@
 window.addEventListener("DOMContentLoaded", init);
 // adds current year after copyright symbol, Daniel Morrissey 21118701
+var button1 = document.getElementById('button');
 function init(){
 	let currentDate = document.getElementById("currentYear");
 	currentDate.innerHTML = "&copy; " + new Date().getFullYear();
+	if(button1!=null){
+	button1.addEventListener('click', validateForm);
+button1.addEventListener('click', formSubmit);
+	}
 }
 
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
@@ -254,7 +259,7 @@ const emailIsValid = email => {
 
 //SUBMIT Contact FORM AND DISPLAY MESSAGE
 
-var button1 = document.getElementById('button');
+
 const form=document.getElementById("form");
 const name = document.getElementById('name');
 const email = document.getElementById('email');
@@ -277,8 +282,7 @@ const email = document.getElementById('email');
 	}
 	}
 
-button1.addEventListener('click', validateForm);
-//button.addEventListener('click', formSubmit);
+
 
 
 

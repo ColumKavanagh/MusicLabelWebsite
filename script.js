@@ -254,7 +254,7 @@ const emailIsValid = email => {
 
 //SUBMIT Contact FORM AND DISPLAY MESSAGE
 
-var button = document.getElementById('button');
+var button1 = document.getElementById('button');
 const form=document.getElementById("form");
 const name = document.getElementById('name');
 const email = document.getElementById('email');
@@ -277,8 +277,8 @@ const email = document.getElementById('email');
 	}
 	}
 
-button.addEventListener('click', validateForm);
-button.addEventListener('click', formSubmit);
+button1.addEventListener('click', validateForm);
+//button.addEventListener('click', formSubmit);
 
 
 

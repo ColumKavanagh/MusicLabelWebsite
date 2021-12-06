@@ -230,7 +230,8 @@ function validateForm(){
 		//email address required
 		if (email.length==0) {
 			alert("Please enter your email address.");
-			email.focus();
+			var emailDOM = document.getElementById('email');
+			emailDOM.focus();
 			event.preventDefault();
 			//return false;
 		} else if (!emailIsValid(email)) {
@@ -290,6 +291,7 @@ button.addEventListener('click', formSubmit);
         cookie = 0;
     }
 
+$(document).ready(function(){
    if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
         $("#list-builder").delay(delay).fadeIn("fast", () => {
             $("#popup-box").fadeIn("fast", () => {});
@@ -358,7 +360,7 @@ button.addEventListener('click', formSubmit);
 	}
 
 
-
+})
 
 
 

@@ -223,24 +223,25 @@ let valid = false;
 function validateForm(){
 	const form = document.getElementById("form");
 	const email = document.getElementById('email').value;
+	var emailDOM = document.getElementById('email');
 	const name = document.getElementById('name');
 	const message = document.getElementById('message').value;
+	var messageDOM = document.getElementById('message');
 		
 		event.preventDefault();
 		//email address required
 		if (email.length==0) {
 			alert("Please enter your email address.");
-			var emailDOM = document.getElementById('email');
 			emailDOM.focus();
 			event.preventDefault();
 			//return false;
 		} else if (!emailIsValid(email)) {
 			alert("Please enter a valid email address.");
-			email.focus();
+			emailDOM.focus();
 		} else if (message === "") {
 			//message content required
 			alert("Please enter your message.");
-			message.focus();
+			messageDOM.focus();
 		} else {
 			valid = true; // Can submit the form data to the server
 		}

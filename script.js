@@ -5,8 +5,8 @@ function init(){
 	let currentDate = document.getElementById("currentYear");
 	currentDate.innerHTML = "&copy; " + new Date().getFullYear();
 	if(button1!=null){
-	button1.addEventListener('click', validateForm);
-button1.addEventListener('click', formSubmit);
+		button1.addEventListener('click', validateForm);
+		button1.addEventListener('click', formSubmit);
 	}
 }
 
@@ -267,18 +267,18 @@ const email = document.getElementById('email');
 	function formSubmit(){	
 	//get email data from form
 	if(valid==true){
-	var email = document.getElementById("email").value;
-	//hide form
-	var form=document.getElementById("form");
-	form.style.display="none";
-	//hide 'Submit' button
-	var button=document.getElementById("button");
-	button.style.display="none";
-	//get name data from form
-	var name = document.getElementById("name").value;	
-	//insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
-	var p=document.getElementById("showSubmit");
-	p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch via "+email+" shortly.";
+		var email = document.getElementById("email").value;
+		//hide form
+		var form=document.getElementById("form");
+		form.style.display="none";
+		//hide 'Submit' button
+		var button=document.getElementById("button");
+		button.style.display="none";
+		//get name data from form
+		var name = document.getElementById("name").value;	
+		//insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
+		var p=document.getElementById("showSubmit");
+		p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch via "+email+" shortly.";
 	}
 	}
 
@@ -306,10 +306,11 @@ $(document).ready(function(){
 				function validateForm(){
 					var popupEmail = document.getElementById('popup-email').value;
 					var popupName = document.getElementById('popup-name').value;
+					var popupNameDom = document.getElementById('popup-name');
 						//name is required
 						if (popupName.length==0) {
-							alert("Please enter your first name.");
-							popupName.focus();
+							
+							popupNameDom.focus();
 							event.preventDefault;
 						}else if(popupEmail.length==0) {
 							alert("Please enter your email address.");

@@ -360,7 +360,6 @@ $(document).ready(function(){
 
 	}
 
-
 })
 
 

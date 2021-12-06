@@ -1,8 +1,13 @@
 window.addEventListener("DOMContentLoaded", init);
 // adds current year after copyright symbol, Daniel Morrissey 21118701
+var button1 = document.getElementById('button');
 function init(){
 	let currentDate = document.getElementById("currentYear");
 	currentDate.innerHTML = "&copy; " + new Date().getFullYear();
+	if(button1!=null){
+		button1.addEventListener('click', validateForm);
+		button1.addEventListener('click', formSubmit);
+	}
 }
 
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
@@ -254,7 +259,7 @@ const emailIsValid = email => {
 
 //SUBMIT Contact FORM AND DISPLAY MESSAGE
 
-var button = document.getElementById('button');
+
 const form=document.getElementById("form");
 const name = document.getElementById('name');
 const email = document.getElementById('email');
@@ -262,23 +267,22 @@ const email = document.getElementById('email');
 	function formSubmit(){	
 	//get email data from form
 	if(valid==true){
-	var email = document.getElementById("email").value;
-	//hide form
-	var form=document.getElementById("form");
-	form.style.display="none";
-	//hide 'Submit' button
-	var button=document.getElementById("button");
-	button.style.display="none";
-	//get name data from form
-	var name = document.getElementById("name").value;	
-	//insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
-	var p=document.getElementById("showSubmit");
-	p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch via "+email+" shortly.";
+		var email = document.getElementById("email").value;
+		//hide form
+		var form=document.getElementById("form");
+		form.style.display="none";
+		//hide 'Submit' button
+		var button=document.getElementById("button");
+		button.style.display="none";
+		//get name data from form
+		var name = document.getElementById("name").value;	
+		//insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
+		var p=document.getElementById("showSubmit");
+		p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch via "+email+" shortly.";
 	}
 	}
 
-button.addEventListener('click', validateForm);
-button.addEventListener('click', formSubmit);
+
 
 
 
@@ -300,12 +304,13 @@ $(document).ready(function(){
 			//VALIDATION of pop-up form input
 				let validPopupDetails = false;
 				function validateForm(){
-					var popupEmail = document.getElementById('popup-email').value;
-					var popupName = document.getElementById('popup-name').value;
+					var popupEmail = $('#popup-email').val();
+					var popupName = $('#popup-name').val();
+					var popupNameDom = $('#popup-name');
 						//name is required
 						if (popupName.length==0) {
-							alert("Please enter your first name.");
-							popupName.focus();
+							alert("Please enter your name.");
+							popupNameDom.focus();
 							event.preventDefault;
 						}else if(popupEmail.length==0) {
 							alert("Please enter your email address.");

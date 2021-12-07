@@ -1,12 +1,11 @@
+*{
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 /* Homepage POP-UP style*/
 #popup-text{
     color:#5DFDCB;
     font-size: large;
-}
-
-#button{
-    color:#5DFDCB;
-    background-color: #19191E;
 }
 
 
@@ -62,12 +61,17 @@
     width: 40%;
 }
 
-#popup-box button {
-    padding: 10px;
-    border: 2px solid #5DFDCB;
+#submitButton{
+    background-color: #19191E;
+	color: #5DFDCB;
+	border: solid 2px #5DFDCB;
 	cursor: pointer;
+	padding: 12px 20px;
 }
 
+#submitButton:hover {
+	border: solid 2px #B88615;
+}
 /*WEBSITE style*/
 .body{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -195,16 +199,17 @@ styles band recommendations images for mobiles, Daniel Morrissey 21118701
 /*
 	Ciara O' Malley
 */ 
+
 input[type=submit], #recommendShowHide, #instructionGigClose {
-   background-color: #3494e2;
-   color: white;
-   padding: 12px 20px;
-   border: none;
-   cursor: pointer;
+	background-color: #19191E;
+	color: #5DFDCB;
+	border: solid 2px #5DFDCB;
+	cursor: pointer;
+    padding: 12px 20px;
 }
   
  input[type=submit]:hover, #recommendShowHide:hover, #instructionGigClose:hover {
-   background-color: #2d4ace;
+	border: solid 2px #B88615;
 }
 
 input[type=text], select {
@@ -252,7 +257,7 @@ input[type=text], select {
   
   .footer-dark ul a:hover {
 	opacity:0.8;
-	color:#f0f9ff;
+	color: #B88615;
   }
   
   @media (max-width:767px) {
@@ -304,6 +309,7 @@ input[type=text], select {
   
   .footer-dark .item.social > a:hover {
 	opacity:0.9;
+	color: #B88615;
   }
   
   .footer-dark .copyright {
@@ -324,7 +330,8 @@ input[type=text], select {
 	background-color: #19191E;
 	color: #5DFDCB;
 	border: solid 2px #5DFDCB;
-	font-size: x-large;
+	cursor: pointer;
+	padding: 12px 20px;
 }
 #slideshowButton:hover{
 	border: solid 2px #B88615;
@@ -411,15 +418,15 @@ iframe{
     resize: vertical;
   }
   input[type=submit] {
-    background-color: #3494e2;
-    color: white;
+	background-color: #19191E;
+	color: #5DFDCB;
+	border: solid 2px #5DFDCB;
+	cursor: pointer;
     padding: 12px 20px;
-    border: none;
-    cursor: pointer;
   }
   
   input[type=submit]:hover {
-    background-color: #2d4ace;
+	border: solid 2px #B88615;
   }
   
   /* Style the container/contact section */

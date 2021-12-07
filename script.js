@@ -355,7 +355,7 @@ $(document).ready(function(){
 
 			*/
 
-			//Function to close the pop-up: used after someone subscribes to the email ist or if they just want to skip past the pop-up
+			//Function to close the pop-up: used after someone subscribes to the email list or if they just want to skip past the pop-up
 				function closePopup(){
 					$("#list-builder, #popup-box").hide();
 					localStorage.setItem("list-builder", (new Date()).getTime());

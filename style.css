@@ -92,6 +92,9 @@
 	margin: 10px;
 }
 
+/*
+css that styles the nav, Daniel Morrissey 21118701 and Colum Kavanagh
+*/
 .nav{
 	border: 0.1em solid #5DFDCB;
 	margin: 10px;
@@ -109,9 +112,7 @@
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
-/*
-css that styles the nav, Daniel Morrissey 21118701 and Colum Kavanagh
-*/
+
 
 .nav-container{
 	display: flex;
@@ -139,7 +140,7 @@ media query that changes the nav to column for mobiles, Daniel Morrissey 2111870
 }
 
 /*
-styles the logo in nav and bottom of page, Daniel Morrissey & Colum Kavanagh
+styles the logo in nav and bottom of page, Daniel Morrissey 21118701 & Colum Kavanagh
 */
 .logo-image-link /*as in the nav-bar*/{
 	display: flex;

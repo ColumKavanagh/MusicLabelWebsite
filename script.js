@@ -20,12 +20,16 @@ $(document).ready(function(){
 	let country = ["johnny cash", "john denver", "steve earle"];
 	
 	$(document).on("submit", "#recommendForm", function(event){
+		// prevents submission
 		event.preventDefault();
-		var genre = $("#genreList").val().trim();
+		// brings in genre/artist, converts it to lowercase and removes white space at start and end, Daniel Morrissey 21118701
+		var genre = $("#genreList").val().toLowerCase().trim();
 		var band = $("#band").val().toLowerCase().trim();
+		// first if checks if only letters brought in, Daniel Morrissey 21118701
 		if(/[^a-zA-Z]+$/.test(band)){
 			$("#suggestions").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
 		} else if(genre.length>0 && band.length>0){
+			// prevents searching both genre and artist at same time, Daniel Morrissey 21118701
 			$("#suggestions").text("Either select a music genre or search similar artists").css("color", "#ff0000").css("border-style", "none");
 		} else {
 			// search based off of genre, Daniel Morrissey 21118701
@@ -46,6 +50,7 @@ $(document).ready(function(){
 			
 			// search based off of band name, Daniel Morrissey 21118701
 			if(band.length==0 && genre.length == 0){
+				// prevents searching both genre and artist at same time, Daniel Morrissey 21118701
 				$("#suggestions").text("Please select a genre or enter an artist or band").css("color", "#ff0000").css("border-style", "none");
 			} else{
 				// each if searches a band in each genre and if true will show similar bands but won't show band in input
@@ -58,6 +63,7 @@ $(document).ready(function(){
 				} else if(bandSearch(band, country)){
 					bandSearchFiller(country, band, "Country");
 				} else if(genre.length==0 && band.length>0) {
+					// If search brings no result
 					$("#suggestions").text("No artist or band was found").css("color", "#ff0000").css("border-style", "none");
 				}
 			}
@@ -66,17 +72,20 @@ $(document).ready(function(){
 	
 	//function that shows band recommendations based on the select tag, Daniel Morrissey 21118701
 	function suggestionFiller(genre, musicGenre){
+		// empties suggestion paragraph
 		$("#suggestions").text("").css("color", "#000000");
 		var bandHolder = "";
+		// adds the results to bandHolder
 		for(var i = 0; i < genre.length; i++){
 			bandHolder+= "<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 		}
+		// shows the results and shows show/hide button
 		$("#suggestions").html(bandHolder);
 		$("#suggestions").css("border-style", "solid").css("padding", "1em");
 		$("#recommendShowHide").css("visibility", "visible");
 	}
 	
-	//function that shows band recommendations based on text input, skips the text input band. Daniel Morrissey 21118701
+	//function that shows band recommendations based on text input, skips the text input band. Structured similar to suggestionFiller method. Daniel Morrissey 21118701
 	function bandSearchFiller(genre, band, musicGenre){
 		$("#suggestions").text("").css("color", "#000000");
 		var bandHolder="";
@@ -92,7 +101,7 @@ $(document).ready(function(){
 		$("#recommendShowHide").css("visibility", "visible");
 	}
 	
-	//function that searches for a band in each genre array, Daniel Morrissey 21118701
+	//function that searches for a band in each genre array, if found counter is incremented and loop stops. If counter is 1 return true. Daniel Morrissey 21118701
 	function bandSearch(band, genre){
 		var counter = 0;
 		for(var i = 0; i < genre.length; i++){
@@ -112,7 +121,9 @@ $(document).ready(function(){
 	function gigFiller(band, genre, venue){
 		$("#resultGig").text("").css("color", "#000000");
 		var bandGigHolder="";
+		// array that will be filled with 3 random dates
 		var date = [randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date()), randomDate(new Date(2015, 0, 1), new Date())];
+		// will sort array with most recent date 1st
 		date.sort(function(a,b){
 			var da = new Date(a).getTime();
 			var db = new Date(b).getTime();
@@ -122,6 +133,7 @@ $(document).ready(function(){
 		for(var i = 0; i < genre.length; i++){
 			bandGigHolder+="<h3><i style='text-transform:capitalize'>" + band + "</i></h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
 		}
+		// switch to include the relevant iframe of a live event
 		switch(band){
 			case "rise against":
 				bandGigHolder+='<iframe src="https://www.youtube.com/embed/Av7QpmwnRnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
@@ -194,6 +206,7 @@ $(document).ready(function(){
 		}
 	})
 	
+	// toggles the user visibility of the show/hide button, Daniel Morrissey 21118701
 	$(document).on("click", "#instructionGigClose", function(){
 		$("#resultGig").toggle("slow");
 	})

@@ -8,6 +8,9 @@
     font-size: large;
 }
 
+#popup-close-contact, #popup-close-gigs, #popup-close-recommend{
+	display: none;
+}
 
 #list-builder {
     position: fixed;

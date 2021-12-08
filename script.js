@@ -1,6 +1,15 @@
 window.addEventListener("DOMContentLoaded", init);
 // adds current year after copyright symbol, Daniel Morrissey 21118701
 var button1 = document.getElementById('button');
+let validPopupDetails = false;
+var delay = 600; // milliseconds
+    var cookie_expire = 0; // days
+
+    var cookie = localStorage.getItem("list-builder");
+    if(cookie == undefined || cookie == null) {
+        cookie = 0;
+    }
+	
 function init(){
 	let currentDate = document.getElementById("currentYear");
 	currentDate.innerHTML = "&copy; " + new Date().getFullYear();
@@ -8,6 +17,97 @@ function init(){
 		button1.addEventListener('click', validateForm);
 		button1.addEventListener('click', formSubmit);
 	}
+	
+	
+	if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
+		/*listBuilder.style.opacity=0;
+		setTimeout(function(){listBuilder})
+		$("#list-builder").delay(delay).fadeIn("fast", () => {
+            $("#popup-box").fadeIn("fast", () => {});
+        	});*/
+		var listBuilder = document.getElementById("list-builder");
+		if(listBuilder != null){
+			setTimeout(fin(listBuilder), delay);
+		}
+		var popupBox = document.getElementById("popup-box");
+		if(popupBox != null){
+			setTimeout(fin(popupBox), 1);
+		}
+		
+		var popUpClose = document.getElementsByClassName("popup-close");
+		if(typeof(popUpClose) != undefined){
+			popUpClose[0].addEventListener("click", closePopup);
+		}			
+		
+		var submitButton = document.getElementById("submitButton");
+		if(submitButton != null){
+			submitButton.addEventListener("click", submitPopup);
+		}
+	}
+}
+
+function validateFormPopUp(){
+	
+	var popupEmail = document.getElementById("popup-email").value;
+	var popupName = document.getElementById("popup-name").value;
+	var popupNameDom = document.getElementById("popup-name");
+		//name is required
+		if (popupName.length==0) {
+			alert("Please enter your name.");
+			popupNameDom.focus();
+			event.preventDefault;
+		}else if(popupEmail.length==0) {
+			alert("Please enter your email address.");
+		} else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(popupEmail))) {
+			alert("Please enter a valid email address.");
+		} else {
+			validPopupDetails = true; // Can submit the form data to the server
+		}
+}
+
+function submitPopup(){
+	validateFormPopUp();
+	event.preventDefault();
+	if (validPopupDetails){
+		var popupBoxContent = document.getElementById("popup-box-content");
+		var popUpClose = document.getElementsByClassName("popup-close");		
+		popupBoxContent.innerHTML = "<img src='images/close.png' class='popup-close'/><p style='text-align: center'> Thank you for subscribing to the Bass-ic Records newsletter!</p>";
+		if(popUpClose != null){
+			popUpClose[0].addEventListener("click", closePopup);
+		}
+		
+	}
+}
+
+function closePopup(){
+	var listBuilder = document.getElementById("list-builder");
+	var somePopUpBox = document.getElementById("popup-box");
+	listBuilder.style.display = "none";
+	somePopUpBox.style.display = "none";
+	localStorage.setItem("list-builder", (new Date()).getTime());
+}
+
+function fin(el){
+	if(el != null){
+		el.style.display = "block";
+	}
+	var i = 0;
+		
+	fadeIn(el, i);
+}
+
+function fadeIn(el, i){
+	
+	i+=0.01;
+	seto(el, i);
+	if(i<1){
+		setTimeout(function(){fadeIn(el, i);}, 10);
+	}
+}
+
+function seto(el, i){
+	
+	el.style.opacity = i;
 }
 
 // JQuery for recommendations page, user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701
@@ -277,7 +377,7 @@ const form=document.getElementById("form");
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 
-	function formSubmit(){	
+function formSubmit(){	
 	//get email data from form
 	if(valid==true){
 		var email = document.getElementById("email").value;
@@ -293,92 +393,9 @@ const email = document.getElementById('email');
 		var p=document.getElementById("showSubmit");
 		p.innerHTML="Hi "+name+". Thank you for your message. We will be in touch via "+email+" shortly.";
 	}
-	}
+}
 
 
-
-
-
-//POP-UP ON HOMEPAGE
-
-	var delay = 600; // milliseconds
-    var cookie_expire = 0; // days
-
-    var cookie = localStorage.getItem("list-builder");
-    if(cookie == undefined || cookie == null) {
-        cookie = 0;
-    }
-
-$(document).ready(function(){
-   if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
-        $("#list-builder").delay(delay).fadeIn("fast", () => {
-            $("#popup-box").fadeIn("fast", () => {});
-        	});
-			//VALIDATION of pop-up form input
-				let validPopupDetails = false;
-				function validateForm(){
-					var popupEmail = $('#popup-email').val();
-					var popupName = $('#popup-name').val();
-					var popupNameDom = $('#popup-name');
-						//name is required
-						if (popupName.length==0) {
-							alert("Please enter your name.");
-							popupNameDom.focus();
-							event.preventDefault;
-						}else if(popupEmail.length==0) {
-							alert("Please enter your email address.");
-						} else if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(popupEmail))) {
-							alert("Please enter a valid email address.");
-						} else {
-							validPopupDetails = true; // Can submit the form data to the server
-						}
-				}
-
-				$("#submitButton").click(submitPopup);
-				
-				function submitPopup() {
-					validateForm();
-					event.preventDefault;
-					if (validPopupDetails){
-					$("#popup-box-content").html("<img src='images/close.png' class='popup-close'/><p style='text-align: center'> Thank you for subscribing to the Bass-ic Records newsletter!</p>");
-					$(".popup-close").click(closePopup);
-					}
-				}       
-					
-			/*In a real-life scenario, when someone click our 'submit' button on the pop-up form, the 
-			content inputted by th user to our pop-up form would be sent in a 
-			'post' request to the URL specified in the 'action' attribute of our html 
-			form.
-			The 'ajax' funtion that would send this post request would look like the following:
-
-				$("#submitButton").click(() => {
-					validateForm();
-					if (valid){
-						$.ajax({
-							type: "POST",
-							url: $("#popup-form").attr("action"),
-							data: $("#popup-form").serialize(),
-							success: (data) => {
-								$("#popup-box-content").html("<p style='text-align: center'>Thank you for subscribing to Bass-ic Records newsletter!</p>");
-								$(".popup-close").click(closePopup);
-						}
-					}    
-					});
-				});
-
-			*/
-
-			//Function to close the pop-up: used after someone subscribes to the email list or if they just want to skip past the pop-up
-				function closePopup(){
-					$("#list-builder, #popup-box").hide();
-					localStorage.setItem("list-builder", (new Date()).getTime());
-				}
-
-				$(".popup-close").click(closePopup);
-
-	}
-
-})
 
 
 

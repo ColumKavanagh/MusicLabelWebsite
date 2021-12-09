@@ -1,8 +1,19 @@
 *{
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
 	text-align: center;
+}
+/* media query that reduces the font size of H1 and H2 on smaller screens */
+@media only screen and (max-width: 820px){
+	h1{
+		font-size: medium;
+		font-weight:bold
+	}
+	h2{
+		font-size: medium;
+		font-weight:bold
+	}
 }
 /* Homepage POP-UP style*/
 #popup-text{
@@ -229,7 +240,7 @@ input[type=text], select {
 
 
   
-/* FOOTER STYLING - CIARA O MALLEY */
+ /* FOOTER STYLING CIARA O'MALLEY - EDITED FROM TEMPLATE https://bbbootstrap.com */
 
   .footer-dark {
 	padding:50px 0;

@@ -211,6 +211,14 @@ styles band recommendations images, Daniel Morrissey 21118701
 /*
 styles band recommendations images for mobiles, Daniel Morrissey 21118701
 */
+
+
+@media only screen and (max-width: 1000px){
+	.suggestion{
+		width:40%;
+	}
+}
+
 @media only screen and (max-width: 820px){
 	.suggestion{
 		width:80%;

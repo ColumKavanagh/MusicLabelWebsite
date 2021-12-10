@@ -114,7 +114,6 @@ css that styles the nav, Daniel Morrissey 21118701 and Colum Kavanagh
 .nav{
 	border: 0.1em solid #5DFDCB;
 	margin: 10px;
-	width: min-width;
 	padding-left: 10px;
 	padding-right: 10px;
 	text-decoration:none;

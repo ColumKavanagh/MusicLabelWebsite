@@ -40,7 +40,7 @@ if(cookie == undefined || cookie == null) {
 	cookie = 0;
 }
 let listBuilder = document.getElementById("list-builder");
-let delay = 300; // milliseconds
+let delay = 200; // milliseconds
 if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
 	
 	var popupBox = document.getElementById("popup-box");

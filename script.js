@@ -42,9 +42,7 @@ if(cookie == undefined || cookie == null) {
 let listBuilder = document.getElementById("list-builder");
 let delay = 300; // milliseconds
 if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
-	if(listBuilder != null){
-		setTimeout(fin(listBuilder), delay);
-	}
+	
 	var popupBox = document.getElementById("popup-box");
 	if(popupBox != null){
 		setTimeout(fin(popupBox), delay);

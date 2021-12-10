@@ -186,7 +186,7 @@ $(document).ready(function(){
 		var bandHolder = "";
 		//Adds the results to bandHolder
 		for(var i = 0; i < genre.length; i++){
-			bandHolder+= "<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
+			bandHolder+= "<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] +".webp' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 		}
 		//Shows the results and shows show/hide button
 		$("#suggestions").html(bandHolder);
@@ -199,7 +199,7 @@ $(document).ready(function(){
 		var bandHolder="";
 		for(var i = 0; i < genre.length; i++){				
 			if(genre[i]!=band){
-				bandHolder+="<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
+				bandHolder+="<h3><i style='text-transform:capitalize'>" + genre[i] + "</i></h3>" + "<br/>Music Genre: " + musicGenre + "<br/><br/><img src='../images/" + genre[i] + ".webp' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of band (not actually bands to avoid copyright issues)'/><br/>"
 			} else{
 				continue;				
 			}
@@ -240,7 +240,7 @@ JQuery for 'Gigs' tool;
 			return db < da ? -1 : db > da ? 1 : 0
 		});
 		for(var i = 0; i < genre.length; i++){
-			bandGigHolder+="<h3><i style='text-transform:capitalize'>" + band + "</i></h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".jpg' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
+			bandGigHolder+="<h3><i style='text-transform:capitalize'>" + band + "</i></h3> <p>Venue: <i>" + venue[i] + "</i><br />" + date[i].toDateString() + "</p><img src='../images/" + band + ".webp' class='suggestion' style='border-radius:0.5em;height:300px;display:block;margin-left:auto;margin-right:auto;' alt='image of a gig (not actually gigs to avoid copyright issues)'/><br/>";
 		}
 		//Switch to include the relevant YouTube iFrame of a live event
 		switch(band){

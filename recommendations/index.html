@@ -25,87 +25,88 @@
 				<a class="nav" href="../gigs/">Gigs</a>
 				<a class="nav" href="../contact/">Contact</a>
 			</nav>
-			<div class="row">
-				<div id="popup-close-recommend" class="popup-close"></div>
-                <div class = "col-md-12">
-					<h1>
-						Welcome to our music recommendations page! 
-					</h1>
-                    <p style="text-align:center;">
-						Either select a genre of music or search a band/artist (but not both; select "Select a Genre" if you need to)
-						in the "Search Similar Bands" field and click "Search Recommendations".
-						<br/>Click on "Click here to show/hide results" to show or hide the results when they appear.
-                    </p>
-					<p>
-						Here is a list of the bands/artists that you can enter so far:
-					</p>
-					<ul>
-						<li>Rise Against</li>
-						<li>Green Day</li>
-						<li>Metallica</li>
-						<li>Taylor Swift</li>
-						<li>Pink</li>
-						<li>Justin Bieber</li>
-						<li>Rihanna</li>
-						<li>Beyonce</li>
-						<li>Drake</li>
-						<li>Johnny Cash</li>
-						<li>John Denver</li>
-						<li>Steve Earle</li>
-					</ul>
-                </div>
-            </div>
-			<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
-			<form id="recommendForm">
+			<main>
 				<div class="row">
-					<div class="col-md-12">
-						<label for="genreList">Select Music Genre:</label>
+					<div id="popup-close-recommend" class="popup-close"></div>
+					<div class = "col-md-12">
+						<h1>
+							Welcome to our music recommendations page! 
+						</h1>
+						<p style="text-align:center;">
+							Either select a genre of music or search a band/artist (but not both; select "Select a Genre" if you need to)
+							in the "Search Similar Bands" field and click "Search Recommendations".
+							<br/>Click on "Click here to show/hide results" to show or hide the results when they appear.
+						</p>
+						<p>
+							Here is a list of the bands/artists that you can enter so far:
+						</p>
+						<!-- List of bands that can be searched Daniel Morrissey 21118701 -->
+						<ul>
+							<li>Rise Against</li>
+							<li>Green Day</li>
+							<li>Metallica</li>
+							<li>Taylor Swift</li>
+							<li>Pink</li>
+							<li>Justin Bieber</li>
+							<li>Rihanna</li>
+							<li>Beyonce</li>
+							<li>Drake</li>
+							<li>Johnny Cash</li>
+							<li>John Denver</li>
+							<li>Steve Earle</li>
+						</ul>
+					</div>
+				</div>
+				<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
+				<form id="recommendForm">
+					<div class="row">
+						<div class="col-md-12">
+							<label for="genreList">Select Music Genre:</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						<!-- Select genre -->
+							<select id="genreList" name="genreList" style="width:100%;">
+								<option id="default" value="">Select a Genre</option>
+								<option id="rock" value="rock">Rock</option>
+								<option id="rnb" value="rnb">RNB</option>
+								<option id="pop" value="pop">Pop</option>
+								<option id="country" value="country">Country</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label for="band">Search Similar bands:</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						<!-- User searches similar bands/artists -->
+							<input type="text" id="band" value="" style="width:100%;"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<input type="submit" id="submit" value="Search Recommendations" />
+						</div>
+					</div>
+				</form>
+				<div class="row">
+					<div class="col-md-6">
+					<!-- Toggles results between visible to user and hidden, first search will automatically show the results -->
+						<button id="recommendShowHide">Show/Hide results</button>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
-					<!-- Select genre -->
-						<select id="genreList" name="genreList" style="width:100%;">
-							<option id="default" value="">Select a Genre</option>
-							<option id="rock" value="rock">Rock</option>
-							<option id="rnb" value="rnb">RNB</option>
-							<option id="pop" value="pop">Pop</option>
-							<option id="country" value="country">Country</option>
-						</select>
+					<div class = "col-md-12">
+						<!--Band recommendations will show here with the name, genre and an image (images are pictures that I took at home to avoid copyright issues), Daniel Morrissey 21118701-->
+						<p id="suggestions" style="border:0.05em none #000000;border-radius:0.5%;">
+						</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<label for="band">Search Similar bands:</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-					<!-- User searches similar bands/artists -->
-						<input type="text" id="band" value="" style="width:100%;"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<input type="submit" id="submit" value="Search Recommendations" />
-					</div>
-				</div>
-			</form>
-			<div class="row">
-				<div class="col-md-6">
-				<!-- Toggles results between visible to user and hidden, first search will automatically show the results -->
-					<button id="recommendShowHide">Show/Hide results</button>
-				</div>
-			</div>
-            <div class="row">
-                <div class = "col-md-12">
-					<!--Band recommendations will show here with the name, genre and an image (images are pictures that I took at home to avoid copyright issues), Daniel Morrissey 21118701-->
-					<p id="suggestions" style="border:0.05em none #000000;border-radius:0.5%;">
-                    </p>
-                </div>
-            </div>
-            <br/>
-		
+			</main>
         <!--footer-->
 		<div class="footer-dark">
             <footer>

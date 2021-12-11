@@ -8,8 +8,8 @@ function init(){
 	var button1 = document.getElementById('formButton');
 	//Adding event listeners to the button on the  form on the 'Contact' page
 	if(button1!=null){
-	button1.addEventListener('click', validateForm);
-	button1.addEventListener('click', formSubmit);
+		button1.addEventListener('click', validateForm);
+		button1.addEventListener('click', formSubmit);
 	}
 }
 

@@ -1,8 +1,8 @@
-//*****Raw Javascript to run when the DOM has finished loading on every page
+//*****Raw Javascript to run when the DOM has finished loading on every page (Daniel Morrissey)
 window.addEventListener("DOMContentLoaded", init);
 //What the 'init' function does:
 function init(){
-	//Adding copyright year on 'Footer' of ALL PAGES , Daniel Morrissey 21118701
+	//Adding copyright year on 'Footer' of ALL PAGES
 	let currentDate = document.getElementById("currentYear");
 	currentDate.innerHTML = "&copy; " + new Date().getFullYear();
 	var button1 = document.getElementById('formButton');
@@ -13,7 +13,7 @@ function init(){
 	}
 }
 
-/****POP-UP ON HOMEPAGE
+/****POP-UP ON HOMEPAGE (Ciara O'Malley, Colum Kavanagh and Daniel Morrissey)
 Raw javascript to load and operate the pop-up*/ 
 /*Functions to set the animation of the popup on the homepage 
 screen and making sure the popup only loads once per day per user*/
@@ -81,7 +81,7 @@ function validateFormPopUp(){
 }
 //Sumbitting the popup
 function submitPopup(){ /*In a real-life scenario, a POST method would be used to send the data 
-	inputted by the user into the popup form securely to a server on the backend via n HTTP request*/
+	inputted by the user into the popup form securely to a server on the backend via an HTTP request*/
 	validateFormPopUp();
 	event.preventDefault();
 	if (validPopupDetails){
@@ -101,7 +101,7 @@ function closePopup(){
 	localStorage.setItem("list-builder", (new Date()).getTime());
 }
 
-/****HOMEPAGE SLIDESHOW:
+/****HOMEPAGE SLIDESHOW: (Colum Kavanagh)
 Raw Javascript for showing/hiding homepage slideshow and adjusting the interval between each slide, Colum Kavanagh*/
 var slideshow = document.getElementById("bass-icCarousel");
 var slideshowButton = document.getElementById("slideshowButton")
@@ -119,7 +119,7 @@ function toggleSlideshow(){ //used in an 'onclick' attribute of the relevant but
 	}
 }
 
-/****RECOMMENDATIONS TOOL:
+/****RECOMMENDATIONS TOOL: (Daniel Morrissey)
 JQuery for 'Recommendations' tool; user can search via genre from a drop down menu or search a band via text input (case sensitive), Daniel Morrissey 21118701*/
 $(document).ready(function(){
 	let bands = ["rise against", "green day", "metallica", "taylor swift", "pink", "justin bieber", "rihanna", "beyonce", "drake", "johnny cash", "john denver", "steve earle"];
@@ -131,17 +131,17 @@ $(document).ready(function(){
 	$(document).on("submit", "#recommendForm", function(event){
 		//Prevents submission
 		event.preventDefault();
-		//Brings in genre/artist, converts it to lowercase and removes white space at start and end, Daniel Morrissey 21118701
+		//Brings in genre/artist, converts it to lowercase and removes white space at start and end
 		var genre = $("#genreList").val().toLowerCase().trim();
 		var band = $("#band").val().toLowerCase().trim();
-		//First if checks if only letters brought in, Daniel Morrissey 21118701
+		//First if checks if only letters brought in
 		if(/[^a-zA-Z]+$/.test(band)){
 			$("#suggestions").text("Only letters are allowed").css("color", "#ff0000").css("border-style", "none");
 		} else if(genre.length>0 && band.length>0){
-		//Prevents searching both genre and artist at same time, Daniel Morrissey 21118701
+		//Prevents searching both genre and artist at same time
 			$("#suggestions").text("Either select a music genre or search similar artists").css("color", "#ff0000").css("border-style", "none");
 		} else {
-		//Search based off of genre, Daniel Morrissey 21118701
+		//Search based off of genre
 			if(genre.length==0 && band.length==0){
 				$("#suggestions").text("Please select a genre or enter an artist or band").css("color", "#ff0000").css("border-style", "none");
 			} else{
@@ -157,9 +157,9 @@ $(document).ready(function(){
 				}
 			}
 			
-		//Search based off of band name, Daniel Morrissey 21118701
+		//Search based off of band name
 		if(band.length==0 && genre.length == 0){
-			//Prevents searching both genre and artist at same time, Daniel Morrissey 21118701
+			//Prevents searching both genre and artist at same time
 			$("#suggestions").text("Please select a genre OR enter an artist/band name.").css("color", "#ff0000").css("border-style", "none");
 		} else{
 			//Each if statement searches a band in each genre and if true will show similar bands but won't show band in input
@@ -179,7 +179,7 @@ $(document).ready(function(){
 		}
 	})
 	
-	//Function that shows band recommendations based on the select tag, Daniel Morrissey 21118701
+	//Function that shows band recommendations based on the select tag
 	function suggestionFiller(genre, musicGenre){
 		//Empties suggestion paragraph
 		$("#suggestions").text("").css("color", "#000000");
@@ -193,7 +193,7 @@ $(document).ready(function(){
 		$("#suggestions").css("border-style", "solid").css("padding", "1em");
 		$("#recommendShowHide").css("visibility", "visible");
 	}
-	//Function that shows band recommendations based on text input, skips the text input band. Structured similar to suggestionFiller method. Daniel Morrissey 21118701
+	//Function that shows band recommendations based on text input, skips the text input band. Structured similar to suggestionFiller method. Daniel 
 	function bandSearchFiller(genre, band, musicGenre){
 		$("#suggestions").text("").css("color", "#000000");
 		var bandHolder="";
@@ -208,7 +208,7 @@ $(document).ready(function(){
 		$("#suggestions").css("border-style", "solid").css("padding", "1em");
 		$("#recommendShowHide").css("visibility", "visible");
 	}
-	//Function that searches for a band in each genre array, if found counter is incremented and loop stops. If counter is 1 return true. Daniel Morrissey 21118701
+	//Function that searches for a band in each genre array, if found counter is incremented and loop stops. If counter is 1 return true.
 	function bandSearch(band, genre){
 		var counter = 0;
 		for(var i = 0; i < genre.length; i++){
@@ -224,9 +224,9 @@ $(document).ready(function(){
 		}
 	}
 
-/****GIGS TOOL:
+/****GIGS TOOL: (Daniel Morrissey)
 JQuery for 'Gigs' tool;
-	Function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort), Daniel Morrissey 21118701*/
+	Function that shows past gigs sorted by date (most recent first, got help from stackoverflow for the sort)*/
 	function gigFiller(band, genre, venue){
 		$("#resultGig").text("").css("color", "#000000");
 		var bandGigHolder="";
@@ -286,12 +286,12 @@ JQuery for 'Gigs' tool;
 		$("#instructionGigClose").css("visibility", "visible");
 	}
 	
-	//Random date generator, Daniel Morrissey 21118701
+	//Random date generator
 	function randomDate(start, end) {
 		return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 	}
 	
-	//Function that shows events, Daniel Morrissey 21118701
+	//Function that shows events
 	$(document).on("submit", "#formGig", function(event){
 		event.preventDefault();
 		var bandGig = $("#bandGig").val().toLowerCase().trim();
@@ -315,7 +315,7 @@ JQuery for 'Gigs' tool;
 		}
 	})
 	
-	//Toggles the user visibility of the show/hide button, Daniel Morrissey 21118701
+	//Toggles the user visibility of the show/hide button - Daniel Morrissey
 	$(document).on("click", "#instructionGigClose", function(){
 		$("#resultGig").toggle("slow");
 	})
@@ -324,7 +324,7 @@ JQuery for 'Gigs' tool;
 	})
 });
 
-/****CONTACT FORM:
+/****CONTACT FORM (Ciara O'Malley & Colum Kavanagh)
 Verify email address is valid using this JS arrow function called 'emailIsValid' (used in validateForm(); function below)*/
 const emailIsValid = email => {
 	return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

@@ -368,8 +368,14 @@ function formSubmit(){	//In a real-life scenario, a POST method would be used to
 		var button=document.getElementById("formButton");
 		button.style.display="none";
 		//Insert data into paragraph and show the paragraph by inserting text into the paragraph using innerHTML.
-		var p=document.getElementById("showSubmit");
-		p.innerHTML="Thank you for your message. We will be in touch via "+email+" shortly.";
+		var contactTitle = document.getElementById("contactTitle")
+		contactTitle.innerHTML = "Message Sent!";
+		contactTitle.scrollIntoView();
+		var spaceBlock = document.getElementById("showSubmit");
+		spaceBlock.style.display="block";
+		var p=document.getElementById("showSubmitText");
+		p.innerHTML="<br/>Thank you for your message. <br/><br/>We will be in touch via "+email+" shortly.";
+
 	}
 }
 

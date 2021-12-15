@@ -390,6 +390,13 @@ input[type=submit]:hover{
     display:table;
     clear:both
 }
+#showSubmit{
+    display: none;
+}
+#showSubmit{
+    height: 500px;
+    width: 100%;
+}
 @media screen and (max-width:600px){
     .column,input[type=submit]{
         width:100%;

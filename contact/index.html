@@ -16,7 +16,8 @@
     </head>
 
     <body>
-		<nav class="nav-container sticky-top">
+		<!--navbar-->
+		<nav class="nav-container">
 			<a href="../" class="logo-image-link"><img src="../images/logo250x250.webp" height="250" width = "250" id="logo" alt="Bass-ic Records logo"/></a>
 			<a class="nav" href="../">Home</a>
 			<a class="nav" href="../recommendations/">Recommendations</a>
@@ -26,7 +27,7 @@
 			<div class="container">
 				<div id="popup-close-contact" class="popup-close"></div>
 				<div style="text-align:center">
-				  <h1>Contact Us</h1>
+				  <h1 id="contactTitle">Contact Us</h1>
 				</div>
 				<div class="row">
 					<form id="form" onsubmit="validateForm()" method="post">
@@ -45,7 +46,9 @@
 					  <input id="formButton" onclick="formSubmit()" type="submit" value="Submit" />
 					</form> 
 				  </div> 
-				  <p id="showSubmit"></p> 
+				  	<div id="showSubmit">
+					  <h2 id="showSubmitText"></h2>
+					</div> 
 			</div> 		
 		<!--footer-->
 		<div class="footer-dark">

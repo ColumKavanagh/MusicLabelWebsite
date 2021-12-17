@@ -105,13 +105,13 @@ function closePopup(){
 Raw Javascript for showing/hiding homepage slideshow and adjusting the interval between each slide, Colum Kavanagh*/
 var slideshow = document.getElementById("bass-icCarousel");
 var slideshowButton = document.getElementById("slideshowButton")
+var x = document.getElementsByClassName("carousel-item");
+for (i = 0; i < x.length; i++) {
+	x[i].setAttribute("data-bs-interval", "2000");//setting the interval between each slide to 2 seconds rather than the longer default time-length from Bootstrap
+	}
 function toggleSlideshow(){ //used in an 'onclick' attribute of the relevant buttoon in the html file
 	if(slideshow.hidden==true){
 		slideshow.removeAttribute("hidden");
-		var x = document.getElementsByClassName("carousel-item");
-		for (i = 0; i < x.length; i++) {
-		x[i].setAttribute("data-bs-interval", "2000");//setting the interval between each slide to 2 seconds rather than the longer default time-length from Bootstrap
-		}
 		slideshowButton.innerHTML="Hide Slideshow"
 	}else{
 		slideshow.setAttribute("hidden", "true");
@@ -374,7 +374,7 @@ function formSubmit(){	//In a real-life scenario, a POST method would be used to
 		var spaceBlock = document.getElementById("showSubmit");
 		spaceBlock.style.display="block";
 		var p=document.getElementById("showSubmitText");
-		p.innerHTML="<br/>Thank you for your message. <br/><br/>We will be in touch via "+email+" shortly.";
+		p.innerHTML="<br/>Thank you for your message. <br/><br/>We will be in touch via "+email+" shortly.<br/>";
 
 	}
 }

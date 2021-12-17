@@ -33,9 +33,8 @@
 							Welcome to our music recommendations page! 
 						</h1>
 						<p class="text-block">
-							Either select a genre of music or search a band/artist (but not both; select "Select a Genre" if you need to)
-							in the "Search Similar Bands" field and click "Search Recommendations".
-							<br/>Click on "Click here to show/hide results" to show or hide the results when they appear.
+						Either type the name of a band/artist in the "Find Similar Bands to:" field OR select 
+						a genre of music from the dropdown menu below (but not both!) and then click "Search Recommendations".
 						</p>
 						<p>
 							Here is a list of the bands/artists that you can enter so far:
@@ -59,14 +58,27 @@
 				</div>
 				<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
 				<form id="recommendForm">
-					<div class="row">
-						<div class="col-md-12">
-							<label for="genreList">Select Music Genre:</label>
+						<div class="row">
+							<!-- User searches similar bands/artists -->
+							<div class="row">
+								<div class="col-md-12">
+									<label for="band">Find Similar Bands to:</label>
+								</div>
+							</div>
+							<div>	
+								<input type="text" id="band" value="" style="width:100%;" placeholder="Type one of the bands/artists listed above here..."/>
+							</div>
 						</div>
-					</div>
 					<div class="row">
-						<div class="col-md-12">
-						<!-- Select genre -->
+						<div class="col-md-6">
+							<div class="col-md-12">
+								<label for="genreList">Find Bands in the Genre of:</label>
+							</div>
+						</div>
+					</div>	
+						<div class="row">
+							<div class="col-md-12">
+							<!-- Select genre -->
 							<select id="genreList" name="genreList" style="width:100%;">
 								<option id="default" value="">Select a Genre</option>
 								<option id="rock" value="rock">Rock</option>
@@ -74,19 +86,8 @@
 								<option id="pop" value="pop">Pop</option>
 								<option id="country" value="country">Country</option>
 							</select>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<label for="band">Search Similar bands:</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-						<!-- User searches similar bands/artists -->
-							<input type="text" id="band" value="" style="width:100%;"/>
-						</div>
-					</div>
 					<div class="row">
 						<div class="col-md-12">
 							<input type="submit" id="submit" value="Search Recommendations" />
@@ -94,7 +95,7 @@
 					</div>
 				</form>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 					<!-- Toggles results between visible to user and hidden, first search will automatically show the results -->
 						<button id="recommendShowHide">Show/Hide results</button>
 					</div>

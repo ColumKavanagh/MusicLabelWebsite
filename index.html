@@ -47,123 +47,126 @@
             <a class="nav" href="contact/">Contact</a>
         </nav>
         <div class="container">
-            <div class="row">
-            <!--Intro text on homepage, Colum Kavanagh / Ciara O Malley-->
+		<main>
+            <div class="container">
+                <div class="row">
+                <!--Intro text on homepage, Colum Kavanagh / Ciara O Malley-->
+                    <br/>
+                    <div class = "col">
+                        <h1>Bass-ic Records is Ireland's newest fake music label representating some of the country's best talent.</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class = "col-md-12">
+                        <h2>What is Bass-ic Records?</h2>
+                        <p class="text-block">Bass-ic Records is a fictional music label devised for a college project. (Nothing on this website is true!) With a fictional roster that includes some of the 
+                            globes finest talent across all genres, Bass-ic Records is unbeatable. Founded in 2021 by Daniel, Colum & Ciara – all avid music fans. <br/> <br/> 
+                            Some of the artists on our fictional label include Rise Against, Green Day, Metallica, Taylor Swift, Pink, 
+                            Justin Bieber, Rihanna, Beyonce, Drake, Johnny Cash, John Denver and Steve Earle, amongst many others.
+                        </p>
+
+                        <div class="box-container">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img src="images/recording.jpg" class="img-fluid" alt="Recording Music">
+                                    <h3>Recording</h3>
+                                    <p>Record your latest lyrical masterpieces with us. Our city centre studio is availalbe to rent on an hourly, daily or weekly basis.</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img src="images/performances.jpg" class="img-fluid" alt="Performing Music">
+                                    <h3>Performances</h3>
+                                    <p>Want to play to a crowd? We can arrange to book the venue, set up the ticketing system and get you ready to play that first note to fans.</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img src="images/publishing.jpg" class="img-fluid" alt="Publishing Music">
+                                    <h3>Publishing</h3>
+                                    <p>Releasing your music across all platforms is easy with Bass-ic Records. With 20 years' experience in the industry, you can trust us.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>How to use this website?</h2>
+                        <p class="text-block">Want to get to know our signed artists a little better? Go to our ‘Recommendations’ page to search our roster either by 'Genre' or 'Similar Artist'. <br/><br/>
+                            Want to see any of our artists past performances? Head over to our ‘Gigs’ page to search your favourite artist and where they previously performed on recent tours. <br/><br/>
+                            If you are a new artist interested in sending us your demo, or just have any questions for our team please fill in your details on our 'Contact' page and a member of the team will get back to you soon.<br/>
+                        </p>
+                    </div>
+                </div>
+
+                
+                <!-- Slideshow: This is a 'Carousel' template from the Bootstrap documentation that I have adjusted to suit our needs 
+                    by changing the timings using raw JavaScript, adjusting colours and fonts in our CSS file along with what captions it shows when used on smaller screens. -->
+                
+                <div id="bass-icCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="0" class="active slide-indicator" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="slide-indicator"></button>
+                    <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="slide-indicator"></button>
+                    <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="3" aria-label="Slide 4" class="slide-indicator"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item" id="slide1">
+                            <img src="images/beyonce.webp" class="d-block w-100 slider-image" alt="Image of Beyonce.">
+                            <div class="carousel-caption d-md-block">
+                                <h5 class = "slide-text slide-title">Beyonce</h5>
+                                <p class="d-none d-md-block slide-text">Put your hands up for Beyonce!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" id="slide2">
+                            <img src="images/pink.webp" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Pink.">
+                            <div class="carousel-caption d-md-block">
+                                <h5 class = "slide-text slide-title">Pink</h5>
+                                <p class="d-none d-md-block slide-text">The spectacular Pink!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item active" id="slide3">
+                            <img src="images/metallica.webp" class="d-block w-100 slider-image" alt="Image of the Metallica.">
+                            <div class="carousel-caption d-md-block">
+                                <h5 class = "slide-text slide-title">Metallica</h5>
+                                <p class="d-none d-md-block slide-text">Rock out with Metallica!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" id="slide4">
+                            <img src="images/rihanna.webp" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Rihanna.">
+                            <div class="carousel-caption d-md-block">
+                            <h5 class = "slide-text slide-title">Rhihanna</h5>
+                            <p class="d-none d-md-block slide-text">From the shores of beautiful Barbados, it's Rihanna!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev slide-button" type="button" data-bs-target="#bass-icCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next slide-button" type="button" data-bs-target="#bass-icCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                
+    
+                <div class="row">
+                    <div class = "col-md-12 button-div">
+                        <button id="slideshowButton" onclick="toggleSlideshow();">Hide Slideshow</button>
+                    </div>
+                </div>
                 <br/>
-                <div class = "col">
-                    <h1>Bass-ic Records is Ireland's newest fake music label representating the world's best talent.</h1>
-                </div>
+                <div class="row">
+                    <div class = "col-md-12">
+
+                        <h2>Tell us what you want to hear</h2>
+                        <p class="text-block"> If there’s an act out there you think we need to know about, please let us know. 
+                            We’re always on the look-out for incredible new talent to take to the next level. Bass-ic records can help take
+                            new talent all the way to the top. Reach out to us via our 'Contact' page. Tell us what we are missing!
+                        </p>  
+                    </div>
+                </div>      
+                <br/> 
             </div>
-            <br/>
-
-            <div class="row">
-                <div class = "col-md-12">
-                    <h2>What is Bass-ic Records?</h2>
-                    <p class="text-block">Bass-ic Records is a fictional music label devised for a college project. (Nothing on this website is true!) With a fictional roster that includes some of the 
-                        globes finest talent across all genres, Bass-ic Records is unbeatable. Founded in 2021 by Daniel, Colum & Ciara – all avid music fans. <br/> <br/> 
-                        Some of the artists on our fictional label include Rise Against, Green Day, Metallica, Taylor Swift, Pink, 
-                        Justin Bieber, Rihanna, Beyonce, Drake, Johnny Cash, John Denver and Steve Earle, amongst many others.
-                    </p>
-
-                    <div class="box-container">
-                        <div class="row">
-                        <div class="col-sm-4">
-                            <img src="images/recording.jpg" class="img-fluid" alt="Recording Music">
-                            <h3>Recording</h3>
-                            <p style="color: lightgrey;">Record your latest lyrical masterpieces with us. Our city centre studio is availalbe to rent on an hourly, daily or weekly basis</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="images/performances.jpg" class="img-fluid" alt="Performing Music">
-                            <h3>Performances</h3>
-                            <p style="color: lightgrey;">Want to play to a crowd? We can arrange to book the venue, set up the ticketing system and get you ready to play that first note to your fans</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <img src="images/publishing.jpg" class="img-fluid" alt="Publishing Music">
-                            <h3>Publishing</h3>
-                            <p style="color: lightgrey;">Releasing your music across all physical and digital platforms couldn't be smoother with Bass-ic Records. With 20 years experience in the music publishing business you can trust us</p>
-                        </div>
-                        </div>
-                    </div>
-
-                    <h2>How to use this website?</h2>
-                    <p class="text-block">Want to get to know our signed artists a little better? Go to our ‘Recommendations’ page to search our roster either by Genre or Similar Artist. <br/><br/>
-                        Want to see any of our artists past performances? Head over to our ‘Gigs’ page to search your favourite artist and where they previously performed on recent tours. <br/><br/>
-                        If you are a new artist interested in sending us your demo, or just have any questions for our team please fill in your details on our “Contact Us” page and a member of the team will come back to you.<br/>
-                    </p>
-                </div>
+            <div class="container">
+                <img src="images/quote.webp" class="img-fluid" alt="Music doesn't lie. If there is something to be changed in this world, then it can only happen through music - Jimi Hendrix Quote">
             </div>
-
-            
-            <!-- Slideshow: This is a 'Carousel' template from the Bootstrap documentation that I have adjusted to suit our needs 
-                by changing the timings using raw JavaScript, adjusting colours and fonts in our CSS file along with what captions it shows when used on smaller screens. -->
-            
-            <div id="bass-icCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="0" class="active slide-indicator" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="slide-indicator"></button>
-                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="slide-indicator"></button>
-                  <button type="button" data-bs-target="#bass-icCarousel" data-bs-slide-to="3" aria-label="Slide 4" class="slide-indicator"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item" id="slide1">
-                        <img src="images/beyonce.webp" class="d-block w-100 slider-image" alt="Image of Beyonce.">
-                        <div class="carousel-caption d-md-block">
-                            <h5 class = "slide-text slide-title">Beyonce</h5>
-                            <p class="d-none d-md-block slide-text">Put your hands up for Beyonce!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" id="slide2">
-                        <img src="images/pink.webp" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Pink.">
-                        <div class="carousel-caption d-md-block">
-                            <h5 class = "slide-text slide-title">Pink</h5>
-                            <p class="d-none d-md-block slide-text">The spectacular Pink!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item active" id="slide3">
-                        <img src="images/metallica.webp" class="d-block w-100 slider-image" alt="Image of the Metallica.">
-                        <div class="carousel-caption d-md-block">
-                            <h5 class = "slide-text slide-title">Metallica</h5>
-                            <p class="d-none d-md-block slide-text">Rock out with Metallica!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" id="slide4">
-                        <img src="images/rihanna.webp" class="d-block w-100 slider-image" data-bs-interval="100" alt="Image of Rihanna.">
-                        <div class="carousel-caption d-md-block">
-                        <h5 class = "slide-text slide-title">Rhihanna</h5>
-                        <p class="d-none d-md-block slide-text">From the shores of beautiful Barbados, it's Rihanna!</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev slide-button" type="button" data-bs-target="#bass-icCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next slide-button" type="button" data-bs-target="#bass-icCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            
-   
-              <div class="row">
-                <div class = "col-md-12 button-div">
-                    <button id="slideshowButton" onclick="toggleSlideshow();">Hide Slideshow</button>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class = "col-md-12">
-
-                    <h2>Tell us what you want to hear</h2>
-                    <p class="text-block"> If there’s an act out there you think we need to know about let us know. 
-                        We’re always on the look-out for incredible new talent to take to the next level.
-                    </p>  
-                </div>
-            </div>      
-            <br/> 
-        </div>
-        <div class="container">
-            <img src="images/quote.webp" class="img-fluid" alt="Music doesn't lie. If there is something to be changed in this world, then it can only happen through music - Jimi Hendrix Quote">
+        </main>
         </div>
         <!-- Bootstrap Footer - Ciara O'Malley - Template from https://bbbootstrap.com -->
         <div class="footer-dark">

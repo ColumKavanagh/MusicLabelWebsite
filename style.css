@@ -8,7 +8,8 @@ body{
 }
 h1{
     text-align:center;
-    font-weight:900
+    font-weight:900;
+    margin-bottom: 30px;
 }
 h2{
     font-weight:700;
@@ -439,13 +440,13 @@ CSS for bootstrap boxes on Contact Page Ciara O Malley
 */
 
 h3 {
-    color: #b78515;
+    color: #b88615;
     font-family:Calibri, sans-serif;
 }
 
 .box-container { 
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -454,10 +455,21 @@ h3 {
 
 .col-sm-4 { 
     background-color: #19191e;
+    padding: 10px;
     flex: 1;
-    padding: 16px;
-    margin: 0px;
-    height: auto;
+    margin: 5px;
+    height:auto;
+    color: lightgrey;
    }
 
-
+.tool-border{
+    border: 2px solid #b4fce552;;
+}
+#suggestions{
+    border:0.05em none #b88615;
+    border-radius:0.5%;
+}
+#resultGig{
+    border:0.05em none #b88615;
+    border-radius:0.5%;
+}

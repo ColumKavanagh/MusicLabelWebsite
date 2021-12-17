@@ -30,85 +30,87 @@
 					<div id="popup-close-recommend" class="popup-close"></div>
 					<div class = "col-md-12">
 						<h1>
-							Welcome to our music recommendations page! 
+							Let us recommend you something...
 						</h1>
 						<p class="text-block">
 						Either type the name of a band/artist in the "Find Similar Bands to:" field OR select 
 						a genre of music from the dropdown menu below (but not both!) and then click "Search Recommendations".
 						</p>
-						<p>
-							Here is a list of the bands/artists that you can enter so far:
-						</p>
-						<!-- List of bands that can be searched Daniel Morrissey -->
-						<ul>
-							<li>Rise Against</li>
-							<li>Green Day</li>
-							<li>Metallica</li>
-							<li>Taylor Swift</li>
-							<li>Pink</li>
-							<li>Justin Bieber</li>
-							<li>Rihanna</li>
-							<li>Beyonce</li>
-							<li>Drake</li>
-							<li>Johnny Cash</li>
-							<li>John Denver</li>
-							<li>Steve Earle</li>
-						</ul>
 					</div>
 				</div>
-				<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
-				<form id="recommendForm">
-						<div class="row">
-							<!-- User searches similar bands/artists -->
-							<div class="row">
-								<div class="col-md-12">
-									<label for="band">Find Similar Bands to:</label>
-								</div>
-							</div>
-							<div>	
-								<input type="text" id="band" value="" style="width:100%;" placeholder="Type one of the bands/artists listed above here..."/>
-							</div>
-						</div>
+		<div class = "container tool-border">
+			<p>
+				Here is a list of the bands/artists that you can enter so far:
+			</p>
+			<!-- List of bands that can be searched Daniel Morrissey -->
+			<ul>
+				<li>Rise Against</li>
+				<li>Green Day</li>
+				<li>Metallica</li>
+				<li>Taylor Swift</li>
+				<li>Pink</li>
+				<li>Justin Bieber</li>
+				<li>Rihanna</li>
+				<li>Beyonce</li>
+				<li>Drake</li>
+				<li>Johnny Cash</li>
+				<li>John Denver</li>
+				<li>Steve Earle</li>
+			</ul>
+			<!--A form to search for band recommendations either by genre or by band name, the band needs to be in the javascript array and only other bands of the same genre will show, Daniel Morrissey 2118701-->
+			<form id="recommendForm">
 					<div class="row">
-						<div class="col-md-6">
-							<div class="col-md-12">
-								<label for="genreList">Find Bands in the Genre of:</label>
-							</div>
-						</div>
-					</div>	
+						<!-- User searches similar bands/artists -->
 						<div class="row">
 							<div class="col-md-12">
-							<!-- Select genre -->
-							<select id="genreList" name="genreList" style="width:100%;">
-								<option id="default" value="">Select a Genre</option>
-								<option id="rock" value="rock">Rock</option>
-								<option id="rnb" value="rnb">RNB</option>
-								<option id="pop" value="pop">Pop</option>
-								<option id="country" value="country">Country</option>
-							</select>
+								<label for="band">Find Similar Bands to:</label>
 							</div>
 						</div>
+						<div>	
+							<input type="text" id="band" value="" style="width:100%;" placeholder="Type one of the bands/artists listed above here..."/>
+						</div>
+					</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-12">
+							<label for="genreList">Find Bands in the Genre of:</label>
+						</div>
+					</div>
+				</div>	
 					<div class="row">
 						<div class="col-md-12">
-							<input type="submit" id="submit" value="Search Recommendations" />
+						<!-- Select genre -->
+						<select id="genreList" name="genreList" style="width:100%;">
+							<option id="default" value="">Select a Genre</option>
+							<option id="rock" value="rock">Rock</option>
+							<option id="rnb" value="rnb">RNB</option>
+							<option id="pop" value="pop">Pop</option>
+							<option id="country" value="country">Country</option>
+						</select>
 						</div>
 					</div>
-				</form>
 				<div class="row">
 					<div class="col-md-12">
-					<!-- Toggles results between visible to user and hidden, first search will automatically show the results -->
-						<button id="recommendShowHide">Show/Hide results</button>
+						<input type="submit" id="submit" value="Search Recommendations" />
 					</div>
 				</div>
-				<div class="row">
-					<div class = "col-md-12">
-						<!--Band recommendations will show here with the name, genre and an image (images are pictures that I took at home to avoid copyright issues), Daniel Morrissey 21118701-->
-						<p id="suggestions" style="border:0.05em none #000000;border-radius:0.5%;">
-						</p>
-					</div>
+			</form>
+			<div class="row">
+				<div class="col-md-12">
+				<!-- Toggles results between visible to user and hidden, first search will automatically show the results -->
+					<button id="recommendShowHide">Show/Hide results</button>
 				</div>
-			</main>
-	</div>
+			</div>
+			<div class="row">
+				<div class = "col-md-12">
+					<!--Band recommendations will show here with the name, genre and an image (images are pictures that I took at home to avoid copyright issues), Daniel Morrissey 21118701-->
+					<p id="suggestions">
+					</p>
+				</div>
+			</div>
+		</div>
+		</main>
+		</div>
 	<!--footer-->
 	<div class="footer-dark">
 		<footer>

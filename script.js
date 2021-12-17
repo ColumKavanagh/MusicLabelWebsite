@@ -374,7 +374,7 @@ function formSubmit(){	//In a real-life scenario, a POST method would be used to
 		var spaceBlock = document.getElementById("showSubmit");
 		spaceBlock.style.display="block";
 		var p=document.getElementById("showSubmitText");
-		p.innerHTML="<br/>Thank you for your message. <br/><br/>We will be in touch via "+email+" shortly.<br/>";
+		p.innerHTML="<br/>Thank you for your message. <br/><br/>We will be in touch via "+email+" shortly.<br/><br/>";
 
 	}
 }

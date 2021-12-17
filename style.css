@@ -422,4 +422,29 @@ Css for video on gig page Daniel Morrissey 21118701
     }
 }
 
+/*
+CSS for bootstrap boxes on Contact Page Ciara O Malley
+*/
+
+h3 {
+    color: #b78515;
+    font-family:Calibri, sans-serif;
+}
+
+
+.box-container { 
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-sm-3 { 
+    background-color: #19191e;
+    flex:100%;
+    padding: 10px;
+    margin: 2px;
+    height: auto;
+   }
+
 

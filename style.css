@@ -457,10 +457,12 @@ h3 {
     background-color: #19191e;
     padding: 10px;
     flex: 1;
-    margin: 5px;
+    margin: 0.1em 0.1em;
     height:auto;
     color: lightgrey;
    }
+   
+
 
 .tool-border{
     border: 2px solid #b4fce552;;
